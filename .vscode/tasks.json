@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "windows": {
+                "command": "g++",
+                "args": [
+                    "-g",
+                    "${fileBasename}",
+                    "-lpthread",
+                    "--std=c++11",
+                    "-O2",
+                    "-Wall",
+                    "-Wextra",
+                    "-Wno-unused-result",
+                    "-o",
+                    "${fileBasenameNoExtension}.out"
+                ]
+            },
+            "linux": {
+                "command": "g++",
+                "args": [
+                    "-g",
+                    "${fileBasename}",
+                    "-lpthread",
+                    "--std=c++11",
+                    "-O2",
+                    "-Wall",
+                    "-Wextra",
+                    "-Wno-unused-result",
+                    "-o",
+                    "${fileBasenameNoExtension}.out"
+                ]
+            }
+        }
+    ]
+}
