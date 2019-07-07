@@ -33,3 +33,5 @@
 
 # VSCode generated
 .vscode/ipch
+*.out
+

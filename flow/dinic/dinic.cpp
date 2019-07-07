@@ -16,8 +16,6 @@ using namespace std;
         Add edges to the graph by calling put_edge.
 */
 
-#define inf 0x3f3f3f3f
-
 namespace dinic
 {
 struct edge
@@ -25,6 +23,7 @@ struct edge
     int dest, cap, re;
 };
 
+const int inf = 0x3f3f3f3f;
 const int MAXV = 212345;
 
 int n, s, t, d[MAXV], q[MAXV], next[MAXV];
