@@ -1,3 +1,4 @@
+// https://codeforces.com/contest/992/problem/E
 #include "../bit.cpp"
 
 int main(void)
