@@ -2,6 +2,7 @@
 
 /*
 	BIT: element update, range sum query in O(log(n) * log(m)). This can also be generalized for 3d.
+	Represents a matrix of elements in range [1 ... n][1 ... m].
 */
 
 template <class T>

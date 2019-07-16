@@ -2,6 +2,7 @@
 
 /*
 	BIT: element update, range sum query and sum lower_bound in O(log(N)).
+	Represents an array of elements in range [1, N].
 */
 
 template <class T>

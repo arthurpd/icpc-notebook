@@ -32,3 +32,6 @@ auto operator<<(ostream &os, Iterable v) -> decltype(os << *begin(v))
 
 typedef pair<int, int> pii;
 typedef long long ll;
+
+const int inf = 0x3f3f3f3f;
+const long long infll = 0x3f3f3f3f3f3f3f3fll;
