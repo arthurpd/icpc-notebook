@@ -29,6 +29,9 @@
                     "-Wall",
                     "-Wextra",
                     "-Wno-unused-result",
+                    "-Wconversion",
+                    "-Wfatal-errors",
+                    "-fsanitize=undefined,address",
                     "-o",
                     "${fileBasenameNoExtension}.out"
                 ]
@@ -43,6 +46,9 @@
                     "-Wall",
                     "-Wextra",
                     "-Wno-unused-result",
+                    "-Wconversion",
+                    "-Wfatal-errors",
+                    "-fsanitize=undefined,address",
                     "-o",
                     "${fileBasenameNoExtension}.out"
                 ]
