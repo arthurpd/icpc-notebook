@@ -36,3 +36,5 @@ typedef long double ld;
 
 const int inf = 0x3f3f3f3f;
 const long long infll = 0x3f3f3f3f3f3f3f3fll;
+
+#define sz(x) ((int)(x).size())
