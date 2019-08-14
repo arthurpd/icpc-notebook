@@ -9,6 +9,9 @@
 		- Dot product of vector a with every cyclic shift of vector b.
 		- Attaching two boolean stripes without two 1s next to each other.
 		- String matching.
+	
+	Usage:
+		long double is a lot slower. 3s with ld and 0.7 with double for 10^6 size vectors.
 
 	Source: https://cp-algorithms.com/algebra/fft.html
 */

@@ -4,8 +4,8 @@
 	Finding bridges and articulation points in O(V + E):
 		A bridge is an edge whose removal splits the graph in two connected components.
 		An articulation point is a vertex whose removal splits the graph in two connected components.
-		This can also be adapted to generate the biconnected components of a graph, since only the
-		bridges don't belong to the biconnected components and articulations points also split components.
+		This can also be adapted to generate the biconnected components of a graph, since the
+		articulation points split components.
 
 
 	Constraints:
