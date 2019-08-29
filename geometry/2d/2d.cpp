@@ -8,10 +8,6 @@
 // When increasing EPS, keep in mind that sqrt(1e9^2 + 1) = 1e9 + 5e-10.
 const double EPS = 1e-12;
 
-// Return 1 if x > 0, 0 if x == 0 and -1 if x < 0.
-template <class T>
-int sign(T x) { return (x > 0) - (x < 0); }
-
 // Point struct implementation. Some methods are useful only when using this to represent vectors.
 template <class T>
 struct point
@@ -221,3 +217,16 @@ struct circle
 
 	// TODO: find pair of tangent lines passing two circles.
 };
+
+// The circumcircle of a triangle is the circle intersecting all three vertices.
+// Returns the unique circle going through points A, B and C (given in no particular order).
+// This assumes that the triangle has non-zero area.
+// TODO: test specifically.
+circle<double> circumcircle(const point<double> &A, const point<double> &B, const point<double> &C)
+{
+	circle<double> retv;
+	point<double> a = C - B, b = C - A, c = B - A;
+	retv.r = a.dist() * b.dist() * c.dist() / abs(c.cross(b)) / 2;
+	retv.center = A + (b * c.dist2() - c * b.dist2()).perp() / b.cross(c) / 2;
+	return retv;
+}
