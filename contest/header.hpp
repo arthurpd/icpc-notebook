@@ -47,3 +47,6 @@ int sign(T x) { return (x > 0) - (x < 0); }
 
 template <class T>
 T abs(const T &x) {	return (x < T(0)) ? -x : x; }
+
+// Pretty good compilation command:
+// g++ -g a.cpp --std=c++14 -Wall -Wextra -Wno-unused-result -Wconversion -Wfatal-errors -fsanitize=undefined,address -o a.out
