@@ -1,3 +1,5 @@
+#pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -38,3 +40,10 @@ const int inf = 0x3f3f3f3f;
 const long long infll = 0x3f3f3f3f3f3f3f3fll;
 
 #define sz(x) ((int)(x).size())
+
+// Return 1 if x > 0, 0 if x == 0 and -1 if x < 0.
+template <class T>
+int sign(T x) { return (x > 0) - (x < 0); }
+
+template <class T>
+T abs(const T &x) {	return (x < T(0)) ? -x : x; }
