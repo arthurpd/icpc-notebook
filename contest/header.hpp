@@ -38,3 +38,6 @@ const int inf = 0x3f3f3f3f;
 const long long infll = 0x3f3f3f3f3f3f3f3fll;
 
 #define sz(x) ((int)(x).size())
+
+// Pretty good compilation command:
+// g++ -g a.cpp --std=c++14 -Wall -Wextra -Wno-unused-result -Wconversion -Wfatal-errors -fsanitize=undefined,address -o a.out
