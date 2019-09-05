@@ -5,29 +5,32 @@
 		A bridge is an edge whose removal splits the graph in two connected components.
 		An articulation point is a vertex whose removal splits the graph in two connected components.
 
-		A biconnected component is a maximal subgraph where the removal of any vertex doesn't
-        make the subgraph disconnected.
+		A biconnected component (or 2VCC) is a maximal subgraph where the removal of any vertex doesn't
+        make the subgraph disconnected. In other words, it is a maximal 2-vertex-connected (2VC) subgraph.
 
-    Useful facts:
-        A 2-connected graph is a biconnected one, except that a---b is considered biconnected but not 2-connected.
+        A 2-connected graph is a 2VC one, except that a---b is considered 2VC but not 2-connected.
 
-        A 2-edge connected graph is a graph without bridges. Any 2-connected graph is also 2-edge connected.
+    Useful theorems:
+
+        A 2-edge connected (2EC) graph is a graph without bridges. Any 2-connected graph is also 2EC.
 
         Let G be a graph on at least 2 vertices. The following propositions are equivalent:
             • (i) G is 2-connected;
-            • (ii) any two vertices are in a cycle;
+            • (ii) any two vertices are in a cycle; (a cycle can't repeat vertices)
             • (iii) any two edges are in a cycle and δ(G) ≥ 2;
             • (iv) for any three vertices x,y et z, there is a (x,z)-path containing y.
         Let G be a graph on at least 3 vertices. The following propositions are equivalent:
             • (i) G is 2-edge-connected;
             • (ii) any edge is in a cycle;
             • (iii) any two edges are in a tour and δ ≥ 1;
-            • (iv) any two vertices are in a tour
+            • (iv) any two vertices are in a tour (a tour can repeat vertices)
+
+		If G is 2-connected and not bipartite, all vertices belong to some odd cycle. And any two vertices are in a odd cycle (not really proven).
 
         If G is 2-edge-connected (proof by AC):
             For any two vertices x, y and one edge e, there is a (x, y)-walk containing e without repeating edges.
 
-        A graph admits a strongly connected orientation if and only if it is 2-edge connected.
+        A graph admits a strongly connected orientation if and only if it is 2EC.
         A strong orientation of a given bridgeless undirected graph may be found in linear time by performing 
         a depth first search of the graph, orienting all edges in the depth first search tree away from the 
         tree root, and orienting all the remaining edges (which must necessarily connect an ancestor and a 
@@ -36,14 +39,15 @@
 	Constraints:
 		***undirected*** graph.
 		Vertices are labeled from 0 to n (inclusive).
-		Graph is connected.
+		Graph is connected (but for unconnected just replace single dfs call with a loop).
 
 	Usage:
 		Create the struct setting the starting vertex (a), the maximum vertex label (n),
 	    the graph adjacency list (graph) and a callback f to apply on the biconnected components.
-		Aftewards, art[i] == true if i is an articulation point.
+		Afterwards, art[i] == true if i is an articulation point.
 		If the pair {a, i} is on the bridges list, then the edge {a, graph[a][i]} is a bridge.
-        The callback must recieve a vector of edges {a, b} that are in the same biconnected component.
+        The callback must receive a vector of edges {a, b} that are in the same biconnected component.
+		Remember that for a single vertex, the biconnected callback will not be called.
 
     Sample Usage:
         auto rdm = apb(1, n, graph, [&](vector<pii> v){
