@@ -17,7 +17,8 @@
 		Produces correct results for negative integers as well.
 */
 
-int gcd(int a, int b, int &x, int &y)
+template<class T>
+T gcd(T a, T b, T &x, T &y)
 {
 	if (b == 0)
 	{
@@ -26,8 +27,8 @@ int gcd(int a, int b, int &x, int &y)
 		return a;
 	}
 
-	int x1, y1;
-	int d = gcd(b, a % b, x1, y1);
+	T x1, y1;
+	T d = gcd(b, a % b, x1, y1);
 	x = y1;
 	y = x1 - y1 * (a / b);
 	return d;

@@ -10,9 +10,10 @@
 	Source: modified from https://cp-algorithms.com/algebra/module-inverse.html
 */
 
-int mod_inverse(int a, int m)
+template<class T>
+T mod_inverse(T a, T m)
 {
-	int x, y;
+	T x, y;
 	assert(gcd(a, m, x, y) == 1); // Or return something, if gcd is not 1 the inverse doesn't exist.
 	return (x % m + m) % m;
 }

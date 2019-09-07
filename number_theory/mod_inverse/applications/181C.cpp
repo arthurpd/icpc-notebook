@@ -1,3 +1,5 @@
+// https://codeforces.com/contest/300/problem/C
+
 #include "../mod_inverse.cpp"
 
 #define MAXN 1123456
