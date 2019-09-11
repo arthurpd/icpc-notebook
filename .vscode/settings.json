@@ -65,6 +65,11 @@
 		"valarray": "cpp",
 		"set": "cpp",
 		"string": "cpp",
-		"regex": "cpp"
+		"regex": "cpp",
+		"random": "cpp",
+		"algorithm": "cpp",
+		"iterator": "cpp",
+		"map": "cpp",
+		"memory_resource": "cpp"
 	}
 }
