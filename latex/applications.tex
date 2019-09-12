@@ -1,0 +1,178 @@
+\documentclass [12pt,onecolumn,oneside]{article}
+\usepackage {listings}
+\usepackage {color}
+\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[default]{sourcecodepro}
+\usepackage[T1]{fontenc}
+\definecolor {mygreen}{rgb}{0,0.6,0}
+\definecolor {mygray}{rgb}{0.5,0.5,0.5}
+\definecolor {mymauve}{rgb}{0.58,0,0.82}
+\lstset { %
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle=\small,               % the size of the fonts that are used for the code
+	%basicstyle=\normalsize,               % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%frame=single,                     adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=Octave,                 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=2,                       % sets default tabsize to 2 spaces
+	%title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin {document}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\tableofcontents
+\scriptsize
+
+\bigskip
+
+\section{Data Structures}
+\subsection{ BIT}
+\lstinputlisting [language=c++] {"data_structures/bit/applications/489e.cpp"}
+\lstinputlisting [language=c++] {"data_structures/bit/applications/489e.in"}
+\subsection{ BIT2D}
+\lstinputlisting [language=c++] {"data_structures/bit2d/applications/439e.cpp"}
+\lstinputlisting [language=c++] {"data_structures/bit2d/applications/439e.in"}
+\subsection{ Dynamic Seg}
+\lstinputlisting [language=c++] {"data_structures/dynamic_seg/applications/rangesum.cpp"}
+\lstinputlisting [language=c++] {"data_structures/dynamic_seg/applications/rangesum.in"}
+\subsection{ Linear Container}
+\lstinputlisting [language=c++] {"data_structures/line_container/applications/569d.cpp"}
+\lstinputlisting [language=c++] {"data_structures/line_container/applications/569d.in"}
+\lstinputlisting [language=c++] {"data_structures/line_container/applications/rectangles.cpp"}
+\lstinputlisting [language=c++] {"data_structures/line_container/applications/rectangles.in"}
+\subsection{ Min Queue}
+\lstinputlisting [language=c++] {"data_structures/min_queue/applications/2dSlidingWindow.cpp"}
+\subsection{ Persistent Seg}
+\lstinputlisting [language=c++] {"data_structures/persistent_seg/applications/mkthnum.cpp"}
+\subsection{ Treap}
+\lstinputlisting [language=c++] {"data_structures/treap/applications/gss6.cpp"}
+\lstinputlisting [language=c++] {"data_structures/treap/applications/gss6.in"}
+\lstinputlisting [language=c++] {"data_structures/treap/applications/orderset.cpp"}
+\lstinputlisting [language=c++] {"data_structures/treap/applications/orderset.in"}
+
+\newpage
+
+\section{Geometry}
+\subsection{ 2D}
+\lstinputlisting [language=c++] {"geometry/2d/applications/250c.cpp"}
+\lstinputlisting [language=c++] {"geometry/2d/applications/250c.in"}
+\lstinputlisting [language=c++] {"geometry/2d/applications/357e.cpp"}
+\lstinputlisting [language=c++] {"geometry/2d/applications/357e.in"}
+\lstinputlisting [language=c++] {"geometry/2d/applications/intersection.cpp"}
+\lstinputlisting [language=c++] {"geometry/2d/applications/intersection.in"}
+\subsection{ Graham Scan (convex hull)}
+\lstinputlisting [language=c++] {"geometry/graham_scan(convex_hull)/applications/4558.cpp"}
+\lstinputlisting [language=c++] {"geometry/graham_scan(convex_hull)/applications/g.cpp"}
+\subsection{ Min Enclosing Circle}
+\lstinputlisting [language=c++] {"geometry/min_enclosing_circle/applications/gym102299J.cpp"}
+\lstinputlisting [language=c++] {"geometry/min_enclosing_circle/applications/gym102299J.in"}
+\newpage
+
+\section{Graph}
+\subsection{ Biconnected Components}
+\lstinputlisting [language=c++] {"graph/biconnected_components/applications/gym101492G.cpp"}
+\lstinputlisting [language=c++] {"graph/biconnected_components/applications/icpc2011mining.cpp"}
+\lstinputlisting [language=c++] {"graph/biconnected_components/applications/icpc2011mining.in"}
+\subsection{ Bipartite Matching (Hopcroft Karp)}
+\lstinputlisting [language=c++] {"graph/bipartite_matching/applications/matching.cpp"}
+\subsection{ Bridges/Articulation Points}
+\lstinputlisting [language=c++] {"graph/bridges_art_points/applications/ecp.cpp"}
+\lstinputlisting [language=c++] {"graph/bridges_art_points/applications/submerge.cpp"}
+\lstinputlisting [language=c++] {"graph/bridges_art_points/applications/submerge.in"}
+\subsection{ Max Flow (Dinic)}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/fastflow.cpp"}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/fastflow.in"}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/i.cpp"}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/i.in"}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/matching.cpp"}
+\lstinputlisting [language=c++] {"graph/flow/dinic/applications/matching.in"}
+\subsection{ Min Cost Max Flow}
+\lstinputlisting [language=c++] {"graph/flow/min_cost_max_flow/applications/mcmf.cpp"}
+\lstinputlisting [language=c++] {"graph/flow/min_cost_max_flow/applications/mcmf.in"}
+\lstinputlisting [language=c++] {"graph/flow/min_cost_max_flow/applications/sphiway.cpp"}
+\lstinputlisting [language=c++] {"graph/flow/min_cost_max_flow/applications/sphiway.in"}
+\subsection{ Heavy-Light Decomposition}
+\lstinputlisting [language=c++] {"graph/heavy_light_decomposition/applications/LESHYS.cpp"}
+\lstinputlisting [language=c++] {"graph/heavy_light_decomposition/applications/QTREE.cpp"}
+\subsection{ Strongly Connected Components}
+\lstinputlisting [language=c++] {"graph/scc/applications/2sat.cpp"}
+\newpage
+
+\section{Misc}
+NO APPLICATIONS
+\newpage
+
+\section{Number Theory}
+\subsection{ Euclid}
+\lstinputlisting [language=c++] {"number_theory/euclid/applications/ep.cpp"}
+\lstinputlisting [language=c++] {"number_theory/euclid/applications/ep.in"}
+\subsection{ Pollard rho}
+\lstinputlisting [language=c++] {"number_theory/factor/pollardrho.cpp"}
+\subsection{ Modular Inverse}
+\lstinputlisting [language=c++] {"number_theory/mod_inverse/applications/181C.cpp"}
+\subsection{ Phi}
+\lstinputlisting [language=c++] {"number_theory/phi/applications/etf.cpp"}
+\lstinputlisting [language=c++] {"number_theory/phi/applications/etf.in"}
+\subsection{ Sieve}
+\lstinputlisting [language=c++] {"number_theory/sieve/applications/nfactor.cpp"}
+\lstinputlisting [language=c++] {"number_theory/sieve/applications/nfactor.in"}
+\newpage
+
+\section{Numerical}
+\subsection{ Big Int}
+\lstinputlisting [language=c++] {"numerical/bigint/bigint.cpp"}
+\subsection{ FFT}
+\lstinputlisting [language=c++] {"numerical/fft/applications/kinversions.cpp"}
+\lstinputlisting [language=c++] {"numerical/fft/applications/polymul.cpp"}
+\subsection{ Fraction}
+\lstinputlisting [language=c++] {"numerical/frac/applications/unicampC.cpp"}
+\subsection{ Integration}
+\lstinputlisting [language=c++] {"numerical/integration/applications/circle_union_area.cpp"}
+\lstinputlisting [language=c++] {"numerical/integration/applications/circle_union_area.in"}
+\subsection{ linalg}
+\lstinputlisting [language=c++] {"numerical/linalg/applications/unicampC.cpp"}
+\subsection{ Simplex}
+\lstinputlisting [language=c++] {"numerical/simplex/applications/gym101492I.cpp"}
+\lstinputlisting [language=c++] {"numerical/simplex/applications/icpc2016roadtimes.cpp"}
+\newpage
+
+\section{String}
+\subsection{ KMP}
+\lstinputlisting [language=c++] {"string/kmp/applications/nhay.cpp"}
+\lstinputlisting [language=c++] {"string/kmp/applications/nhay.in"}
+\lstinputlisting [language=c++] {"string/kmp/applications/period.cpp"}
+\subsection{ Acho Corasick}
+\lstinputlisting [language=c++] {"string/aho_corasick/applications/475D.cpp"}
+\lstinputlisting [language=c++] {"string/aho_corasick/applications/GROWIN10.cpp"}
+\lstinputlisting [language=c++] {"string/aho_corasick/applications/GROWIN10.in"}
+\subsection{ Suffix Array}
+\lstinputlisting [language=c++] {"string/suffix_array/applications/adastrng.cpp"}
+\lstinputlisting [language=c++] {"string/suffix_array/applications/longcs.cpp"}
+\lstinputlisting [language=c++] {"string/suffix_array/applications/longcs.in"}
+\lstinputlisting [language=c++] {"string/suffix_array/applications/sarray.cpp"}
+\newpage
+
+\end {document}
+

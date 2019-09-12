@@ -1,0 +1,161 @@
+\documentclass [12pt,onecolumn,oneside]{article}
+\usepackage {listings}
+\usepackage {color}
+\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[default]{sourcecodepro}
+\usepackage[T1]{fontenc}
+\definecolor {mygreen}{rgb}{0,0.6,0}
+\definecolor {mygray}{rgb}{0.5,0.5,0.5}
+\definecolor {mymauve}{rgb}{0.58,0,0.82}
+\lstset { %
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	%basicstyle=\small,               % the size of the fonts that are used for the code
+	basicstyle=\normalsize,               % the size of the fonts that are used for the code
+	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	%frame=single,                     adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=Octave,                 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=2,                       % sets default tabsize to 2 spaces
+	%title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\begin {document}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\tableofcontents
+\scriptsize
+
+\bigskip
+
+\newpage
+\section{Contest}
+\subsection{ Header}
+\lstinputlisting [language=c++] {"contest/header.hpp"}
+\subsection{ Sample Debug}
+\lstinputlisting [language=c++] {"contest/sample_debug.cpp.hash"}
+\subsection{ Hash Code}
+\lstinputlisting [language=bash] {"contest/hash_line.sh"}
+\newpage
+
+
+\section{Data Structures}
+\subsection{ BIT}
+\lstinputlisting [language=c++] {"data_structures/bit/bit.cpp.hash"}
+\subsection{ BIT2D}
+\lstinputlisting [language=c++] {"data_structures/bit2d/bit2d.cpp.hash"}
+\subsection{ Dynamic Seg}
+\lstinputlisting [language=c++] {"data_structures/dynamic_seg/dynamic_seg.cpp.hash"}
+\subsection{ Linear Container}
+\lstinputlisting [language=c++] {"data_structures/line_container/line_container.cpp.hash"}
+\subsection{ Min Queue}
+\lstinputlisting [language=c++] {"data_structures/min_queue/min_queue.cpp.hash"}
+\subsection{ Persistent Seg}
+\lstinputlisting [language=c++] {"data_structures/persistent_seg/persistent_seg.cpp.hash"}
+\subsection{ Lazy Seg}
+\lstinputlisting [language=c++] {"data_structures/segment_tree/lazy_seg.cpp.hash"}
+\subsection{ Key Treap}
+\lstinputlisting [language=c++] {"data_structures/treap/key_treap.cpp.hash"}
+\subsection{ Sequential Treap}
+\lstinputlisting [language=c++] {"data_structures/treap/sequencial_treap.cpp.hash"}
+\newpage
+
+\section{Geometry}
+\subsection{ 2D}
+\lstinputlisting [language=c++] {"geometry/2d/2d.cpp.hash"}
+\subsection{ Graham Scan (convex hull)}
+\lstinputlisting [language=c++] {"geometry/graham_scan(convex_hull)/graham_scan.cpp.hash"}
+\subsection{ Min Enclosing Circle (randomized)}
+\lstinputlisting [language=c++] {"geometry/min_enclosing_circle/randomized.cpp.hash"}
+\subsection{ Min Enclosing Circle (ternary search)}
+\lstinputlisting [language=c++] {"geometry/min_enclosing_circle/ternary_search.cpp.hash"}
+\newpage
+
+\section{Graph}
+\subsection{ Biconnected Components}
+\lstinputlisting [language=c++] {"graph/biconnected_components/biconnected_components.cpp.hash"}
+\subsection{ Bipartite Matching (Hopcroft Karp)}
+\lstinputlisting [language=c++] {"graph/bipartite_matching/hopcroft_karp.cpp.hash"}
+\subsection{ Bridges/Articulation Points}
+\lstinputlisting [language=c++] {"graph/bridges_art_points/bridges_art_points.cpp.hash"}
+\subsection{ Max Flow (Dinic)}
+\lstinputlisting [language=c++] {"graph/flow/dinic/dinic.cpp.hash"}
+\subsection{ Max Flow (Dinic w/ Scaling)}
+\lstinputlisting [language=c++] {"graph/flow/dinic/dinic_scaling.cpp.hash"}
+\subsection{ Min Cost Max Flow}
+\lstinputlisting [language=c++] {"graph/flow/min_cost_max_flow/min_cost_max_flow.cpp.hash"}
+\subsection{ Heavy-Light Decomposition}
+\lstinputlisting [language=c++] {"graph/heavy_light_decomposition/hld.cpp.hash"}
+\subsection{ Strongly Connected Components}
+\lstinputlisting [language=c++] {"graph/scc/scc.cpp.hash"}
+\newpage
+
+\section{Misc}
+\subsection{ DP Optimization - Binary Search}
+\lstinputlisting [language=c++] {"misc/dp_optimization/binary_search.cpp.hash"}
+\subsection{ DP Optimization - CHT}
+\lstinputlisting [language=c++] {"misc/dp_optimization/ch_trick.cpp.hash"}
+\subsection{ DP Optimization - Knuth}
+\lstinputlisting [language=c++] {"misc/dp_optimization/knuth.cpp.hash"}
+\subsection{ Ternary Search (continuous)}
+\lstinputlisting [language=c++] {"misc/ternary_search/ternary_search_continuous.cpp.hash"}
+\newpage
+
+\section{Number Theory}
+\subsection{ Euclid}
+\lstinputlisting [language=c++] {"number_theory/euclid/euclid.cpp.hash"}
+\subsection{ Pollard rho}
+\lstinputlisting [language=c++] {"number_theory/factor/pollardrho.cpp.hash"}
+\subsection{ Modular Inverse}
+\lstinputlisting [language=c++] {"number_theory/mod_inverse/mod_inverse.cpp.hash"}
+\subsection{ Phi}
+\lstinputlisting [language=c++] {"number_theory/phi/phi.cpp.hash"}
+\subsection{ Sieve}
+\lstinputlisting [language=c++] {"number_theory/sieve/sieve.cpp.hash"}
+\newpage
+
+\section{Numerical}
+\subsection{ Big Int}
+\lstinputlisting [language=c++] {"numerical/bigint/bigint.cpp.hash"}
+\subsection{ FFT}
+\lstinputlisting [language=c++] {"numerical/fft/fft.cpp.hash"}
+\subsection{ Fraction}
+\lstinputlisting [language=c++] {"numerical/frac/frac.cpp.hash"}
+\subsection{ Integration}
+\lstinputlisting [language=c++] {"numerical/integration/simpson.cpp.hash"}
+\subsection{ linalg}
+\lstinputlisting [language=c++] {"numerical/linalg/mat.cpp.hash"}
+\subsection{ Simplex}
+\lstinputlisting [language=c++] {"numerical/simplex/simplex.cpp.hash"}
+\newpage
+
+\section{String}
+\subsection{ KMP}
+\lstinputlisting [language=c++] {"string/kmp/kmp.cpp.hash"}
+\subsection{ Acho Corasick}
+\lstinputlisting [language=c++] {"string/aho_corasick/aho_corasick.cpp.hash"}
+\subsection{ Suffix Array}
+\lstinputlisting [language=c++] {"string/suffix_array/sa.cpp.hash"}
+\newpage
+
+\end {document}
+

@@ -1,8 +1,8 @@
 #include "../../contest/header.hpp"
 
 /*
-	Euler's totient function (ϕ):
-		Euler's totient function, also known as phi-function ϕ(n), counts the number of integers
+	Euler's totient function (PHI):
+		Euler's totient function, also known as phi-function PHI(n), counts the number of integers
 		between 1 and n inclusive, which are coprime to n. Two numbers are coprime if their greatest 
 		common divisor equals 1 (1 is considered to be coprime to any number).
 		
@@ -12,13 +12,13 @@
 
 	Usage:
 		Some useful properties:
-		- If p is a prime number, ϕ(p)=p−1.
-		- If a and b are relatively prime, ϕ(ab)=ϕ(a)*ϕ(b).
-		- In general, for not coprime a and b, ϕ(ab)=ϕ(a)*ϕ(b)*d/ϕ(d), with d=gcd(a,b) holds.
-		- ϕ(ϕ(m)) <= m / 2
-		- Euler's theorem: a^ϕ(m) ≡ 1 (mod m), for a and m coprime.
-		- For a and m coprime: a^n ≡ a^(n % ϕ(m)) (mod m)
-		- For arbitrary x,m and n >= log_2(m): x^n ≡ x^(ϕ(m)+[n % ϕ(m)]) (mod m)
+		- If p is a prime number, PHI(p)=p-1.
+		- If a and b are relatively prime, PHI(ab)=PHI(a)*PHI(b).
+		- In general, for not coprime a and b, PHI(ab)=PHI(a)*PHI(b)*d/PHI(d), with d=gcd(a,b) holds.
+		- PHI(PHI(m)) <= m / 2
+		- Euler's theorem: a^PHI(m) === 1 (mod m), for a and m coprime.
+		- For a and m coprime: a^n === a^(n % PHI(m)) (mod m)
+		- For arbitrary x,m and n >= log_2(m): x^n === x^(PHI(m)+[n % PHI(m)]) (mod m)
 		The one above allows computing modular exponentiation for really large exponents.
 		- If d is a divisor of n, then there are phi(n/d) numbers i <= n for which gcd(i,n)=d
 		- sum_{d|n} phi(d) = n

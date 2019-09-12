@@ -36,3 +36,9 @@
 *.out
 
 cf/*
+
+*.cpp.hash
+*.aux
+*.log
+*.toc
+*.synctex.gz
