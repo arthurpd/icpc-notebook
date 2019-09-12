@@ -15,15 +15,15 @@
         A 2-edge connected (2EC) graph is a graph without bridges. Any 2-connected graph is also 2EC.
 
         Let G be a graph on at least 2 vertices. The following propositions are equivalent:
-            • (i) G is 2-connected;
-            • (ii) any two vertices are in a cycle; (a cycle can't repeat vertices)
-            • (iii) any two edges are in a cycle and δ(G) ≥ 2;
-            • (iv) for any three vertices x,y et z, there is a (x,z)-path containing y.
+            * (i) G is 2-connected;
+            * (ii) any two vertices are in a cycle; (a cycle can't repeat vertices)
+            * (iii) any two edges are in a cycle and δ(G) ≥ 2;
+            * (iv) for any three vertices x,y et z, there is a (x,z)-path containing y.
         Let G be a graph on at least 3 vertices. The following propositions are equivalent:
-            • (i) G is 2-edge-connected;
-            • (ii) any edge is in a cycle;
-            • (iii) any two edges are in a tour and δ ≥ 1;
-            • (iv) any two vertices are in a tour (a tour can repeat vertices)
+            * (i) G is 2-edge-connected;
+            * (ii) any edge is in a cycle;
+            * (iii) any two edges are in a tour and δ ≥ 1;
+            * (iv) any two vertices are in a tour (a tour can repeat vertices)
 
 		If G is 2-connected and not bipartite, all vertices belong to some odd cycle. And any two vertices are in a odd cycle (not really proven).
 
