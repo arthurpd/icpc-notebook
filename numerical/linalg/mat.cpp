@@ -61,6 +61,22 @@ struct mat : vector<vec<T>>
 	// Absolutely does not work for int.
 	mat operator/(const T &x) const { return linear_comb(*this, T(1) / x, *this, T(0)); }
 
+	// Multiplication of NxR matrix and a RxM matrix.
+	// TODO test me on non-square.
+	mat operator*(mat b) const
+	{
+		int n = (*this).size();
+		int m = b[0].size();
+		int r = (*this)[0].size();
+		mat retv(n, m);
+		for (int i = 0; i < n; i++)
+			for (int j = 0; j < m; j++)
+				for (int k = 0; k < r; k++)
+					retv[i][j] = retv[i][j] + (*this)[i][k] * b[k][j];
+
+		return retv;
+	}
+
 	// Returns inverse of matrix (assuming it is square and non-singular). Runs in O(n^3).
 	// Absolutely does not work for int.
 	mat inverse() // TODO: test singular.
