@@ -21,7 +21,8 @@
 		and should support operations in range [0, size - 1].
 		IMPORTANT: DS should handle empty queries [x + 1, x].
 		IMPORTANT: function applied in DS should be commutative
-		and associative.
+		and associative. (If not commutative, check out application
+		for GSS7)
 
 		VALUES_IN_VERTICES indicates if the tree values are in vertices
 		or in edges. In case of edges, update(v, value)
