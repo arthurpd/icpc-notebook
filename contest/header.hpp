@@ -56,5 +56,4 @@ T abs(const T &x) { return (x < T(0)) ? -x : x; }
 // {
 // 	cin.sync_with_stdio(0);
 // 	cin.tie(0);
-// 	cin.exceptions(cin.failbit);
 // }
