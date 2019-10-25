@@ -230,3 +230,16 @@ circle<double> circumcircle(const point<double> &A, const point<double> &B, cons
 	retv.center = A + (b * c.dist2() - c * b.dist2()).perp() / b.cross(c) / 2;
 	return retv;
 }
+
+//Returms TWO TIMES the area of the SIMPLE (non self intersecting) polygon defined in pol.
+//The area is NEGATIVE if the polygon is in CLOCKWISE.
+template<typename T>
+T area_polygon2(vector<point<T> > pol){
+	T area = 0;
+	for(int i = 0; i < (int)pol.size() - 1; i++)
+		area += pol[i].cross(pol[i+1]);
+ 
+	area += pol[pol.size() - 1].cross(pol[0]);
+	
+	return area;
+}
