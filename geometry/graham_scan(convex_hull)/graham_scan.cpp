@@ -1,38 +1,15 @@
 /*
-	Solution for convex hull problem (minimum polygon covering a set of points) based on ordering ponts by angle.
+	Solution for convex hull problem (minimum polygon covering a set of points) based on ordering points by angle.
 	* Finds the subset of points in the convex hull in O(Nlog(N)).
 	* This version works if you either want intermediary points in segments or not (see comments delimited by //)
 	* This version works when all points are collinear
 	* This version works for repeated points if you add a label to struct, and use this label in overloaded +, - and =.
-	
-	Source: https://github.com/kth-competitive-programming/kactl/blob/master/content/contest/template.cpp
 */
 
-#include<bits/stdc++.h>
-
-typedef long long ll;
-
-using namespace std;
-
-template<typename T>
-struct point
-{
-	typedef point<T> P;
-	T x, y;
-
-	explicit point(T x = 0, T y = 0) : x(x), y(y) {}
-	//Double version: bool operator<(P p) const { return  fabs(x - p.x) < EPS ? y < p.y : x < p.x; }
-	bool operator<(P p) const { return tie(x, y) < tie(p.x, p.y); }
-	//Double version: bool operator==(P p) const { return fabs(x - p.x) < EPS && fabs(y - p.y) < EPS; }
-	bool operator==(P p) const { return tie(x, y) == tie(p.x, p.y); }
-	P operator+(P p) const { return P(x + p.x, y + p.y); }
-	T dist2() const { return x*x + y*y; }
-	P operator-(P p) const { return P(x - p.x, y - p.y); }
-	T dot(P p) const { return x * p.x + y * p.y; }
-	T cross(P p) const { return x * p.y - y * p.x; }
-	T cross(P a, P b) const { return (a - *this).cross(b - *this); }
-	long double dist() const { return sqrt((long double)dist2()); } 					 
-};
+//Only uses 'struct point' form 2d.cpp. Apply following changes to use with double:
+//Double version: bool operator<(P p) const { return  fabs(x - p.x) < EPS ? y < p.y : x < p.x; }
+//Double version: bool operator==(P p) const { return fabs(x - p.x) < EPS && fabs(y - p.y) < EPS; }
+#include "../2d/2d.cpp"
 
 /*Compara primeiro por angulo em relacao a origem e depois por distancia para a origem*/
 template<typename T>
@@ -66,7 +43,7 @@ vector<point<T> > CH(vector<point<T> > points){
 	for(auto p : points){
 		/*Enquanto o proximo ponto gera uma curva para a direita, retira ultimo ponto atual*/
 		/*Segunda comparação serve para caso especial de pontos colineares quando se quer eliminar os intermediarios*/
-		//Trocar terceira comparacao pra <= para discartar pontos do meio de arestas no ch
+		//Trocar terceira comparacao pra <= para descartar pontos do meio de arestas no ch
 		//Double: trocar terceira comparação por < EPS (descarta pontos em arestas) ou < -EPS (mantem pinto em aresta
 		while(ch.size() > 1 && !(p == ch[ch.size() - 2]) && ch[ch.size() - 2].cross(ch[ch.size() - 1] , p) < 0)
 			ch.pop_back();
@@ -79,21 +56,3 @@ vector<point<T> > CH(vector<point<T> > points){
 	return ch;
 }
 
-int main(){
-	int n;
-	scanf("%d", &n);
-	vector<point<ll> > p(n);
-	
-	/*Le poligono*/
-	for(int i = 0; i < n; i++)
-		scanf("%lld %lld", &p[i].x, &p[i].y);
-	
-	/*Encontra CH*/
-	vector<point<ll> > ch = CH(p);
-	
-	/*Imorime resultado*/
-	printf("%d\n", (int)ch.size());
-	for(int i = 0; i < (int)ch.size(); i++)
-		printf("%d% %d\n", ch[i].x, ch[i].y);
-	
-}
