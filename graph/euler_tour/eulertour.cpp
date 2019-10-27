@@ -85,11 +85,11 @@ void init()
 vi euler_tour(int n_edges, int src) {
 	vi ret_vertices;
 	//vi ret_edges;
-	vii s = {{src, -1}};
+	vector<pii> s = {{src, -1}};
 	while(!s.empty()) 
     {
-		int x = s.back().fi;
-		int e = s.back().se;
+		int x = s.back().first;
+		int e = s.back().second;
 		auto &it = its[x], end = vertices[x].outs.end();
 
 		while(it != end && used_edge[*it]) 
