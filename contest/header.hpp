@@ -36,11 +36,16 @@ typedef pair<int, int> pii;
 typedef long long ll;
 typedef unsigned long long ull;
 typedef long double ld;
+typedef vector<int> vi;
+typedef vector<pii> vii;
 
 const int inf = 0x3f3f3f3f;
 const long long infll = 0x3f3f3f3f3f3f3f3fll;
 
 #define sz(x) ((int)(x).size())
+#define fi first
+#define se second
+#define all(x) x.begin(), x.end()
 
 // Return 1 if x > 0, 0 if x == 0 and -1 if x < 0.
 template <class T>
