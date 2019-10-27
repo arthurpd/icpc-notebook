@@ -59,13 +59,15 @@ namespace euler
 #define MAXM 112345
 #define MAXN 112345
 
-struct edge {
-	int u, v, id;
+struct edge
+{
+    int u, v, id;
 };
 
-struct vertice {
-	vi outs;  // edges indexes
-	int in_degree = 0; // not used with undirected graphs
+struct vertice
+{
+    vi outs;           // edges indexes
+    int in_degree = 0; // not used with undirected graphs
 };
 
 int n, m;
@@ -76,55 +78,56 @@ bool used_edge[MAXM];
 
 void init()
 {
-	for (int i = 0; i < n; i++)
-	{
-		its[i] = vertices[i].outs.begin();
-	}
+    for (int i = 0; i < n; i++)
+    {
+        its[i] = vertices[i].outs.begin();
+    }
 }
 
-vi euler_tour(int n_edges, int src) {
-	vi ret_vertices;
-	//vi ret_edges;
-	vector<pii> s = {{src, -1}};
-	while(!s.empty()) 
+vi euler_tour(int n_edges, int src)
+{
+    vi ret_vertices;
+    //vi ret_edges;
+    vector<pii> s = {{src, -1}};
+    while (!s.empty())
     {
-		int x = s.back().first;
-		int e = s.back().second;
-		auto &it = its[x], end = vertices[x].outs.end();
+        int x = s.back().first;
+        int e = s.back().second;
+        auto &it = its[x], end = vertices[x].outs.end();
 
-		while(it != end && used_edge[*it]) 
+        while (it != end && used_edge[*it])
             ++it;
 
-		if(it == end) 
-        { 
+        if (it == end)
+        {
             ret_vertices.push_back(x);
-			//ret_edges.push_back(e);
-            s.pop_back(); 
+            //ret_edges.push_back(e);
+            s.pop_back();
         }
-		else 
-        { 
-			auto edge = edges[*it];
-            int v = edge.u == x ? edge.v:edge.u;
+        else
+        {
+            auto edge = edges[*it];
+            int v = edge.u == x ? edge.v : edge.u;
             s.push_back({v, *it});
-            used_edge[*it] = true; 
+            used_edge[*it] = true;
         }
-	}
-	if (sz(ret_vertices) != n_edges+1)
-		ret_vertices.clear(); // No Eulerian cycles/paths.
-	/*
+    }
+    if (sz(ret_vertices) != n_edges + 1)
+        ret_vertices.clear(); // No Eulerian cycles/paths.
+    /*
 	if (sz(ret_edges) != n_edges)
 		ret_edges.clear(); // No Eulerian cycles/paths.
 	*/
-	
-	// Check if is cycle ret_vertices.front() == ret_vertices.back()
 
-	reverse(all(ret_vertices));
-	return ret_vertices;
-	
-	/*
+    // Check if is cycle ret_vertices.front() == ret_vertices.back()
+
+    reverse(all(ret_vertices));
+    return ret_vertices;
+
+    /*
 	reverse(all(ret_edges));
 	return ret_edges;
 	*/
 }
 
-}
+} // namespace euler
