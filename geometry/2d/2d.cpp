@@ -230,6 +230,7 @@ struct circle
 	// Returns the points in the current circle crossed by those tangents in retV1, and in retV2 the points in the circle 'other'.
 	// First point of each pair is one line, and second point of each pair is the other.
 	// IMPORTANT: You have to verify if one circle is not strictly inside the other.
+	// IMPORTANT: Only use with double.
 	// In the case that one circle is inside the other with one tangent point p, first points equals to p, and second points are out of the circles and
 	// in the tangent line;   
 	void outter_tangents(circle other, pair<P,P> &retV1, pair<P,P> &retV2)
@@ -258,6 +259,7 @@ struct circle
 	// Returns the points in the current circle crossed by those tangents in retV1, and in retV2 the points in the circle 'other'.
 	// First point of each pair is one line, and second point of each pair is the other.
 	// IMPORTANT: You have to verify if one circle does not intersect the other in more than one point (verify centers distance vs r + other.r).
+	// IMPORTANT: Only use with double.
 	// In the case that the circles intersect in one point p and are exterior to one another, points returned as first will be p, and points returned as second
 	// will be points outside the circles in the tangent line)  
 	void inner_tangents(circle other, pair<P,P> &retV1, pair<P,P> &retV2){
