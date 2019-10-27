@@ -35,6 +35,11 @@ struct point
 	{
 		return P(x * cos(a) - y * sin(a), x * sin(a) + y * cos(a));
 	}
+	point<double> proj(P p) const // Returns projection of vector p on this vector.
+	{
+		double d = (double)dot(p);
+		return point<double>((double)x * d, (double)y * d) / (double)dist2();
+	}
 	double angle(P p) const { return p.rotate(-angle()).angle(); } // Angle between the vectors in interval [-pi, pi]. Positive if p is ccw from this.
 };
 
@@ -71,14 +76,15 @@ struct segment
 
 	explicit segment(P a = P(), P b = P()) : pi(a), pf(b) {}
 
-	// Distance from this segment to a given point. TODO: test me.
+	// Distance from this segment to a given point.
+	// ***IMPORTANT*** DOES NOT WORK FOR LONG LONG IF X > 1000.
 	double dist(P p)
 	{
 		if (pi == pf)
 			return (p - pi).dist();
 		auto d = (pf - pi).dist2();
-		auto t = min(d, max(.0, (p - pi).dot(pf - pi)));
-		return ((p - pi) * d - (pf - pi) * t).dist() / d;
+		auto t = min(d, max((T)0, (p - pi).dot(pf - pi)));
+		return ((p - pi) * d - (pf - pi) * t).dist() / (double)d;
 	}
 
 	// Checks if given point belongs to segment. Use dist(p) <= EPS instead when using point<double>.
@@ -92,7 +98,7 @@ struct segment
 	// If infinitely many exist a vector with 2 elements is returned, containing the endpoints of the common line segment.
 	// The wrong position will be returned if P is point<ll> and the intersection point does not have integer coordinates.
 	// However, no problem in using it to check if intersects or not in this case (size of vector will be correct).
-	// Products of **three** coordinates are used in intermediate steps so watch out for overflow if using int or long long.
+	// *** IMPORTANT *** Products of **three** coordinates are used in intermediate steps so watch out for overflow if using int or long long.
 	vector<P> intersect(segment rhs)
 	{
 		auto oa = rhs.pi.cross(rhs.pf, pi), ob = rhs.pi.cross(rhs.pf, pf),
@@ -139,7 +145,7 @@ struct line
 	// Distance from this line to a given point. TODO: test me.
 	double dist(P p)
 	{
-		return abs(a * p.x + b * p.y - c) / sqrt((double)(a * a + b * b));
+		return (double)abs(a * p.x + b * p.y - c) / sqrt((double)(a * a + b * b));
 	}
 
 	// Intersects this line with another given line. See linear_solve2 for usage. TODO: test me.
@@ -233,13 +239,20 @@ circle<double> circumcircle(const point<double> &A, const point<double> &B, cons
 
 //Returms TWO TIMES the area of the SIMPLE (non self intersecting) polygon defined in pol.
 //The area is NEGATIVE if the polygon is in CLOCKWISE.
-template<typename T>
-T area_polygon2(vector<point<T> > pol){
+template <typename T>
+T area_polygon2(vector<point<T>> pol)
+{
 	T area = 0;
-	for(int i = 0; i < (int)pol.size() - 1; i++)
-		area += pol[i].cross(pol[i+1]);
- 
+	for (int i = 0; i < (int)pol.size() - 1; i++)
+		area += pol[i].cross(pol[i + 1]);
+
 	area += pol[pol.size() - 1].cross(pol[0]);
-	
+
 	return area;
+}
+
+template <class T>
+ostream &operator<<(ostream &os, point<T> p)
+{
+	return os << "(" << p.x << ", " << p.y << ")";
 }
