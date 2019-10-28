@@ -35,6 +35,11 @@ struct point
 	{
 		return P(x * cos(a) - y * sin(a), x * sin(a) + y * cos(a));
 	}
+	point<double> proj(P p) const // Returns projection of vector p on this vector.
+	{
+		double d = (double)dot(p);
+		return point<double>((double)x * d, (double)y * d) / (double)dist2();
+	}
 	double angle(P p) const { return p.rotate(-angle()).angle(); } // Angle between the vectors in interval [-pi, pi]. Positive if p is ccw from this.
 };
 
@@ -71,14 +76,15 @@ struct segment
 
 	explicit segment(P a = P(), P b = P()) : pi(a), pf(b) {}
 
-	// Distance from this segment to a given point. TODO: test me.
+	// Distance from this segment to a given point.
+	// ***IMPORTANT*** DOES NOT WORK FOR LONG LONG IF X > 1000.
 	double dist(P p)
 	{
 		if (pi == pf)
 			return (p - pi).dist();
 		auto d = (pf - pi).dist2();
-		auto t = min(d, max(.0, (p - pi).dot(pf - pi)));
-		return ((p - pi) * d - (pf - pi) * t).dist() / d;
+		auto t = min(d, max((T)0, (p - pi).dot(pf - pi)));
+		return ((p - pi) * d - (pf - pi) * t).dist() / (double)d;
 	}
 
 	// Checks if given point belongs to segment. Use dist(p) <= EPS instead when using point<double>.
@@ -92,7 +98,7 @@ struct segment
 	// If infinitely many exist a vector with 2 elements is returned, containing the endpoints of the common line segment.
 	// The wrong position will be returned if P is point<ll> and the intersection point does not have integer coordinates.
 	// However, no problem in using it to check if intersects or not in this case (size of vector will be correct).
-	// Products of **three** coordinates are used in intermediate steps so watch out for overflow if using int or long long.
+	// *** IMPORTANT *** Products of **three** coordinates are used in intermediate steps so watch out for overflow if using int or long long.
 	vector<P> intersect(segment rhs)
 	{
 		auto oa = rhs.pi.cross(rhs.pf, pi), ob = rhs.pi.cross(rhs.pf, pf),
@@ -139,7 +145,7 @@ struct line
 	// Distance from this line to a given point. TODO: test me.
 	double dist(P p)
 	{
-		return abs(a * p.x + b * p.y - c) / sqrt((double)(a * a + b * b));
+		return (double)abs(a * p.x + b * p.y - c) / sqrt((double)(a * a + b * b));
 	}
 
 	// Intersects this line with another given line. See linear_solve2 for usage. TODO: test me.
@@ -153,6 +159,17 @@ struct line
 	{
 		double d = P(a, b).dist() * (c < 0 ? -1 : 1);
 		return line(a / d, b / d, c / d);
+	}
+
+	// Reflects point in current line
+	P reflect(P p)
+	{
+		P res;
+
+		res.x = ((b * b - a * a) * p.x - 2 * a * b * p.y + 2 * a * c) / (a * a + b * b);
+		res.y = ((a * a - b * b) * p.y - 2 * a * b * p.x + 2 * b * c) / (a * a + b * b);
+
+		return res;
 	}
 };
 
@@ -215,7 +232,65 @@ struct circle
 		return {center + p * k1 + p.perp() * k2, center + p * k1 - p.perp() * k2};
 	}
 
-	// TODO: find pair of tangent lines passing two circles.
+	// Finds all the outter tangent lines between current circle and 'other'.
+	// Returns the points in the current circle crossed by those tangents in retV1, and in retV2 the points in the circle 'other'.
+	// First point of each pair is one line, and second point of each pair is the other.
+	// IMPORTANT: You have to verify if one circle is not strictly inside the other.
+	// IMPORTANT: Only use with double.
+	// In the case that one circle is inside the other with one tangent point p, first points equals to p, and second points are out of the circles and
+	// in the tangent line;
+	void outter_tangents(circle other, pair<P, P> &retV1, pair<P, P> &retV2)
+	{
+		T a1 = asin((other.r - r) / (center - other.center).dist());
+		T a2 = -atan2(other.center.y - center.y, other.center.x - center.x);
+		T a3 = asin(1) - a2 + a1;
+
+		retV1.first = P(center.x + r * cos(a3), center.y + r * sin(a3));
+		retV2.first = P(other.center.x + other.r * cos(a3), other.center.y + other.r * sin(a3));
+
+		//In the case there is one tangent point (and circles are external), sets second point in a way that the tangent line can be found.
+		if (abs((center - other.center).dist() + min(r, other.r) - max(r, other.r)) < EPS)
+		{
+			P vec = center - retV1.first;
+			retV1.second = retV2.second = retV1.first + vec.rotate(asin(1));
+		}
+
+		else
+		{
+			line<double> l = line<double>(center, other.center);
+			retV1.second = l.reflect(retV1.first);
+			retV2.second = l.reflect(retV2.first);
+		}
+	}
+
+	// Finds all the inner tangent lines between current circle and 'other'.
+	// Returns the points in the current circle crossed by those tangents in retV1, and in retV2 the points in the circle 'other'.
+	// First point of each pair is one line, and second point of each pair is the other.
+	// IMPORTANT: You have to verify if one circle does not intersect the other in more than one point (verify centers distance vs r + other.r).
+	// IMPORTANT: Only use with double.
+	// In the case that the circles intersect in one point p and are exterior to one another, points returned as first will be p, and points returned as second
+	// will be points outside the circles in the tangent line)
+	void inner_tangents(circle other, pair<P, P> &retV1, pair<P, P> &retV2)
+	{
+		// Point where inner tangents cross (when they are the same line, it's the point in the segment between circle centers).
+		P cp = (other.center * r + center * other.r) / (r + other.r);
+
+		//Finds points for current circle
+		double u = r / (center - cp).dist();
+		double angle = acos(u);
+		P vec = cp - center;
+		retV1 = {center + vec.rotate(angle) * u, center + vec.rotate(-angle) * u};
+
+		//find points for other circle
+		u = other.r / (other.center - cp).dist();
+		angle = acos(u);
+		vec = cp - other.center;
+		retV2 = {other.center + vec.rotate(angle) * u, other.center + vec.rotate(-angle) * u};
+
+		//In the case there is one tangent point (and circles are external), sets second point in a way that the tangent line can be found.
+		if (abs(r + other.r - (center - other.center).dist()) < EPS)
+			retV1.second = retV2.second = cp + vec.rotate(asin(1));
+	}
 };
 
 // The circumcircle of a triangle is the circle intersecting all three vertices.
@@ -233,13 +308,20 @@ circle<double> circumcircle(const point<double> &A, const point<double> &B, cons
 
 //Returms TWO TIMES the area of the SIMPLE (non self intersecting) polygon defined in pol.
 //The area is NEGATIVE if the polygon is in CLOCKWISE.
-template<typename T>
-T area_polygon2(vector<point<T> > pol){
+template <class T>
+T area_polygon2(vector<point<T>> pol)
+{
 	T area = 0;
-	for(int i = 0; i < (int)pol.size() - 1; i++)
-		area += pol[i].cross(pol[i+1]);
- 
+	for (int i = 0; i < (int)pol.size() - 1; i++)
+		area += pol[i].cross(pol[i + 1]);
+
 	area += pol[pol.size() - 1].cross(pol[0]);
-	
+
 	return area;
+}
+
+template <class T>
+ostream &operator<<(ostream &os, point<T> p)
+{
+	return os << "(" << p.x << ", " << p.y << ")";
 }
