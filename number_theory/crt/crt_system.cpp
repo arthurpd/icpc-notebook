@@ -1,5 +1,5 @@
 #include "../../contest/header.hpp"
-#include "../euclid/euclid.cpp"
+#include "crt.cpp"
 /*
     [DESCRIPTION]
      Returns a integer a number x, such that:
@@ -30,21 +30,22 @@
 
 */
 
-ll crt(ll a[], ll m[], int n)
+ll crt_system(ll a[], ll m[], int n)
 {
-    for(int i = 0; i < n; i++) 
+    // normalize
+    for (int i = 0; i < n; i++)
         a[i] = (a[i] % m[i] + m[i]) % m[i];
+
     ll ans = a[0];
     ll lcm = m[0];
-    for(int i = 1; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
-        ll x1, y;
-        ll d = gcd<ll>(lcm, m[i], x1, y);
-        if((a[i] - ans) % d != 0)
+        ans = crt(ans, lcm, a[i], m[i]);
+        if (ans == -1)
             return -1;
-        ll new_lcm = lcm * m[i] / d;
-        ans = ((ans + x1 * (a[i] - ans) / d % (m[i] / d) * lcm) % new_lcm + new_lcm) % new_lcm;
-        lcm = new_lcm;
+        ll x, y;
+        ll d = gcd<ll>(lcm, m[i], x, y);
+        lcm = lcm * m[i] / d;
     }
     return ans;
 }

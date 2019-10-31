@@ -1,3 +1,4 @@
+#include "../../contest/header.hpp"
 /*
 	max(min) queue with O(1) get_max(min).
 	 
