@@ -39,6 +39,8 @@
                 
         You should call init() before call euler_tour(n_edges), the n_edges argument is how many edges
         you are expecting to traverse in the euler_tour/walk.
+
+        !!WARNING!!: Never modify the graph after calling init(), that could invalidate the references.
         
         [return]
             An integer vector that represents the vertices' indexes of the found cycle (when exists)
