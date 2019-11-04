@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "../../../contest/header.hpp"
 
 /*
 	Dinic with Scaling:

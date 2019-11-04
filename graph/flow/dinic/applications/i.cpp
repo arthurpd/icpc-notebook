@@ -1,10 +1,7 @@
 // https://codeforces.com/gym/102007/attachments Problem I.
 
 #include "../dinic.cpp"
-#include <bits/stdc++.h>
-using namespace std;
 
-const int inf = 0x3f3f3f3f;
 #define MAXN 212345
 
 int p[MAXN];
