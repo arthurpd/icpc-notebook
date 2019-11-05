@@ -3,10 +3,10 @@
 /*
     [DESCRIPTION]
      Returns a integer a number x, such that:
-        x = a[0] (mod m[0])
-        x = a[1] (mod m[1])
+        x === a[0] (mod m[0])
+        x === a[1] (mod m[1])
         ...
-        x = a[n - 1] (mod m[n - 1])
+        x === a[n - 1] (mod m[n - 1])
 
     The m[] set does not need to be only of coprimes, because it uses 
     the generalized version of CRT.

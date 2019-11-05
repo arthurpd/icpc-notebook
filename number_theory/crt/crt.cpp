@@ -4,8 +4,8 @@
 /*
     [DESCRIPTION]
      Returns a number x % lcm(m,n), such that: 
-        x ≡ a (mod m)
-        x ≡ b (mod n)
+        x === a (mod m)
+        x === b (mod n)
      
      returns -1 if there is no solution
 

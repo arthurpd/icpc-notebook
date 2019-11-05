@@ -2,7 +2,8 @@
 
 /*
     Description: 
-		Calculate a * b mod c (or a^b mod c) for 0 ≤ a, b < c < 2^63.
+		Calculate a * b mod c (or a^b mod c) 
+		for 0 <= a, b < c < 2^63.
     Time: 
 		mod_mul: O (1)
 		mod_pow: (log b)

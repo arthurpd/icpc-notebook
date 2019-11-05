@@ -3,7 +3,7 @@
 /*
 	Gomory-Hu Tree construction O(V * flow_time) (so O(V^3E), but not 
 	really):
-		The Gomory–Hu tree of an undirected graph with capacities is a 
+		The Gomory-Hu tree of an undirected graph with capacities is a 
 		weighted
 		tree that represents the minimum s-t cuts for all s-t pairs in 
 		the graph.

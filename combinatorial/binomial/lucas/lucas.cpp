@@ -7,7 +7,7 @@
 	
      Write N and M in the base P: 
 	 Np= n_kp^k +...+ n_1p + n_0 and Mp = m_kp^k +...+ m_1p + m_0.
-     Then C(N, M) ≡ Prod(C(n_i, m_i)) % P
+     Then C(N, M) === Prod(C(n_i, m_i)) % P
 
 	[CONSEQUENCE]
 	 A binomial coefficient C(N, M) is divisible by a prime P iff 
