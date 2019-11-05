@@ -1,20 +1,8 @@
 // https://codeforces.com/contest/1252/problem/F
-#include <bits/stdc++.h>
-using namespace std;
- 
-typedef long long ll;
+#include "../../../contest/header.hpp"
  
 #define MAXN 4123
-#define sz(x) (int)(x.size())
-#define inf 0x3f3f3f3f
-#define pii pair<int, int>
-#define all(x) x.begin(), x.end()
-#define db(x) //cerr << #x << " = " << x << endl;
-#define fi first
-#define se second
-#define pb push_back
-#define vi vector<int>
- 
+
 int n;
 vector<int> graph[MAXN];
 vector<int> sub_size[MAXN];
@@ -69,7 +57,7 @@ int canonical(int u, int p = 0)
     for (int v : graph[u])
         if (v != p)
         {
-            sub_labels.pb(canonical(v, u));
+            sub_labels.push_back(canonical(v, u));
         }
  
     sort(all(sub_labels));
@@ -120,7 +108,7 @@ int main()
 			q.push(i);
 		}
         if (degree[i] == 0)
-            roots_one.pb(i);
+            roots_one.push_back(i);
 	}
  
 	while (!q.empty())
@@ -134,7 +122,7 @@ int main()
         for (int k : graph[u])
             if (degree[k] == 1)
             {
-                roots_two.pb({u, k});
+                roots_two.push_back({u, k});
                 vis[k] = 1;
                 break;
             }
@@ -172,15 +160,15 @@ int main()
     {
         for (int i = 0; i < sz(centroids); i++)
         {
-            centroids[i].pb(roots_one[i]);
+            centroids[i].push_back(roots_one[i]);
         }
     }
     if (!roots_two.empty())
     {
         for (int i = 0; i < sz(centroids); i++)
         {
-            centroids[i].pb(roots_two[i].fi);
-            centroids[i].pb(roots_two[i].se);
+            centroids[i].push_back(roots_two[i].first);
+            centroids[i].push_back(roots_two[i].second);
         }
     }
  

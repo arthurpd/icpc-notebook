@@ -1,25 +1,8 @@
 // https://www.spoj.com/submit/TREEISO/id=24729943
 
-#include <bits/stdc++.h>
+#include "../../../contest/header.hpp"
 
-using namespace std;
-#define pb push_back
-#define db(x) cerr << #x << " = " << x << endl;
-#define INF 0x3f3f3f3f3f3f3f3f
-#define fi first
-#define se second
-#define vi vector<int>
-#define vll vector<ll>
-#define all(x) x.begin(), x.end()
-#define sz(x) (int)(x.size())
-#define pii pair<int, int>
-#define pll pair<ll, ll>
-#define vii vector<pii>
-#define ll long long
-#define ull unsigned long long
-typedef long double ld;
-
-vector<vi> graph_a, graph_b;
+vector<vector<int>> graph_a, graph_b;
 int label;
 map<vi, int> map_labels;
 
@@ -75,7 +58,7 @@ int canonical(int u, int p, vector<vi> &graph)
     for (int v : graph[u])
     {
         if (v != p)
-            children_labels.pb(canonical(v, u, graph));
+            children_labels.push_back(canonical(v, u, graph));
     }
 
     sort(all(children_labels));
@@ -104,27 +87,27 @@ int main()
         {
             int u, v;
             scanf("%d%d", &u, &v);
-            graph_a[u].pb(v);
-            graph_a[v].pb(u);
+            graph_a[u].push_back(v);
+            graph_a[v].push_back(u);
         }
         for (int i = 0; i < n - 1; i++)
         {
             int u, v;
             scanf("%d%d", &u, &v);
-            graph_b[u].pb(v);
-            graph_b[v].pb(u);
+            graph_b[u].push_back(v);
+            graph_b[v].push_back(u);
         }
 
         pii roots_a = get_roots(graph_a);
-        pii cano_a = {canonical(roots_a.fi, 0, graph_a), canonical(roots_a.se, 0, graph_a)};
+        pii cano_a = {canonical(roots_a.first, 0, graph_a), canonical(roots_a.second, 0, graph_a)};
 
         pii roots_b = get_roots(graph_b);
-        pii cano_b = {canonical(roots_b.fi, 0, graph_b), canonical(roots_b.se, 0, graph_b)};
+        pii cano_b = {canonical(roots_b.first, 0, graph_b), canonical(roots_b.second, 0, graph_b)};
         
-        if (cano_a.fi == cano_b.fi || 
-            cano_a.fi == cano_b.se ||
-            cano_a.se == cano_b.fi ||
-            cano_a.se == cano_b.se)
+        if (cano_a.first == cano_b.first || 
+            cano_a.first == cano_b.second ||
+            cano_a.second == cano_b.first ||
+            cano_a.second == cano_b.second)
             printf("YES\n");
         else
             printf("NO\n");

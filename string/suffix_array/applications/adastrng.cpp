@@ -1,4 +1,4 @@
-// https://www.spoj.com/problems/SARRAY/
+//https://www.spoj.com/problems/ADASTRNG/
 
 #include "../sa.cpp"
 
