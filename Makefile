@@ -1,6 +1,6 @@
 CXX= g++
 
-CPPFILES =  $(filter-out misc/bit_tricks/bit_tricks.cpp combinatorial/binomial/lucas/applications/DCEPC13D.cpp graph/heavy_light_decomposition/hld.cpp, $(shell find $(SRCDIR) -name '*.cpp'))
+CPPFILES =  $(filter-out misc/bit_tricks/bit_tricks.cpp, $(shell find $(SRCDIR) -name '*.cpp'))
 OBJFILES = $(patsubst %.cpp,%.o,$(CPPFILES))
 HASHFILES = $(patsubst %.cpp,%.cpp.hash,$(CPPFILES))
 OUTFILES = $(patsubst %.cpp,%.out,$(CPPFILES))
@@ -18,7 +18,7 @@ all: $(OBJFILES)
 %.o: %.cpp
 	./gen_hash.sh $<
 	./check_line_width.sh $<
-	$(CXX) -c $< -o $@ $(CPPFLAGS)
+#$(CXX) -c $< -o $@ $(CPPFLAGS)
 
 clean:
 	rm -f $(OBJFILES) $(HASHFILES) $(OUTFILES)
