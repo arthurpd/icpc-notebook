@@ -155,7 +155,8 @@ struct suffix_tree{
                     else{
                         need_suffix = mid;
                         cur_node = cur_node->next(s[g]);
-                        cur_dist = j - g;
+                        //printf("j = %d g = %d\n", j, g);
+                        cur_dist = j - g - 1;
                     }
                 }
                 i += 1;
@@ -212,4 +213,3 @@ struct suffix_tree{
 		printf("] sai\n");
 	}
 };
-
