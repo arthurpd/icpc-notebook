@@ -10,12 +10,14 @@
 		Pass to the function a tree root, the number of vertices (n),
 		a list of queries (pq) with both ends of each path, the graph
 		and functions add, remove and output, such that:
-			add(i) must add the vertex labeled i to your data structure (1 <= i <= n).
+			add(i) must add the vertex labeled i to your data 
+			structure (1 <= i <= n).
 			remove(i) must remove the vertex labeled i (1 <= i <= n).
 			output(i) should answer query pq[i] using current state.
 		
-		This will guarantee that when answering the i-th query, only the vertices
-		on the desired path are currently in your data structure.
+		This will guarantee that when answering the i-th query, only 
+		the vertices on the desired path are currently in your data 
+		structure.
 
 	Runs in 1s for 10^5 vertices and queries on CF.
 
@@ -66,7 +68,8 @@ void mos_tree(int root, int n, vector<pii> pq, vector<int> graph[], const F &add
 			q.push_back({st[a], st[b], i, -1});
 		else
 			q.push_back({en[a], st[b], i, st[y]}); 
-			// For queries of this type, the lca must be separately added.
+			// For queries of this type, the lca must be separately 
+			// added.
 	}
 
 	int bsize = 1 + (2 * n) / sqrt(sz(q));

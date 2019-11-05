@@ -2,17 +2,21 @@
 
 /*
 	Ternary Search:
-		Finds the smallest x in range [bot, top] such that f(x) is maximum in O(lg(top - bot)).
+		Finds the smallest x in range [bot, top] such that f(x) is 
+		maximum in O(lg(top - bot)).
 
 	Constraints:
-		f(x) is strictly increasing for some interval [bot, x1], constant in an interval [x1, x2]
-		and strictly decreasing in a interval [x2, top]. x1 <= x2 are arbitrary values where [x1, x2] 
-		is a plateau of optimal solutions.
+		f(x) is strictly increasing for some interval [bot, x1], 
+		constant in an interval [x1, x2] and strictly decreasing in a 
+		interval [x2, top]. x1 <= x2 are arbitrary values where 
+		[x1, x2] is a plateau of optimal solutions.
 
 	Usage:
 		Call the function passing a lambda expression or function f.
 	
-	Source: modified from https://github.com/kth-competitive-programming/kactl/blob/master/content/various/TernarySearch.h
+	Source: modified from https://github.com/
+	kth-competitive-programming/kactl/blob/master/content/
+	various/TernarySearch.h
 */
 
 template <typename F>

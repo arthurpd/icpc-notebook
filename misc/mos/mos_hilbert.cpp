@@ -5,10 +5,12 @@
     O(N * sqrt(Q) * max(insertion time, removal time)).
 
     Applicability:
-    When Q is significantly less than N, it works much faster than the classical version.
+    When Q is significantly less than N, it works much faster than
+	the classical version.
 
     Usage:
-    Same as the classical version, but use the query's hilbertorder as comparator
+    Same as the classical version, but use the query's hilbertorder 
+	as comparator
 */
 
 constexpr int logn = 20;

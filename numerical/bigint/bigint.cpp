@@ -1,10 +1,12 @@
 #include "../../contest/header.hpp"
 
-// This code is not meant to be written in icpc contests. This is just here to fill a void for now. 
+// This code is not meant to be written in icpc contests. 
+// This is just here to fill a void for now. 
 // Source: someone on CF
 
 // NOTE:
-// This code contains various bug fixes compared to the original version from
+// This code contains various bug fixes compared to the original 
+// version from
 // indy256 (github.com/indy256/codelibrary/blob/master/cpp/numbertheory/bigint-full.cpp),
 // including:
 // - Fix overflow bug in mul_karatsuba.

@@ -1,12 +1,6 @@
 // https://codeforces.com/problemset/problem/681/E
 #include "../2d.cpp"
 
-template <class T>
-ostream &operator<<(ostream &os, point<T> p)
-{
-	return os << "(x=" << p.x << ", y=" << p.y << ")";
-}
-
 #define point point<double>
 #define segment segment<double>
 #define circle circle<double>

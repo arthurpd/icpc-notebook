@@ -3,14 +3,19 @@
 
 /*
 	Suffix array:
-		Build suffix array and LCP array in O((n + lim) log n) using O(n + lim) memory, where lim is the alphabet size.
+		Build suffix array and LCP array in O((n + lim) log n) using 
+		O(n + lim) memory, where lim is the alphabet size.
 
-		sa[i] is the starting index of the suffix which is i-th in the sorted suffix array.
-		The returned vector is of size s.size()+1, and sa[0] == s.size(). The '\0' char at the end is considered
-		part of the string, so sa[0] = "\0", the prefix starting at index s.size().
+		sa[i] is the starting index of the suffix which is i-th in the 
+		sorted suffix array.
+		The returned vector is of size s.size()+1, 
+		and sa[0] == s.size(). The '\0' char at the end is considered
+		part of the string, so sa[0] = "\0", the prefix starting at 
+		index s.size().
 
-		The lcp array contains longest common prefixes for neighbouring strings
-		in the suffix array: lcp[i] = lcp(sa[i], sa[i-1]), lcp[0] = 0.
+		The lcp array contains longest common prefixes for 
+		neighbouring strings in the suffix array: 
+			lcp[i] = lcp(sa[i], sa[i-1]), lcp[0] = 0.
 
 	Example:
 		Computing the LCP and the SA of "GATAGACA"
@@ -26,10 +31,13 @@
 			8	2		0		"TAGACA"
 
 	Usage:
-		Important: the input string must not contain any zero values. Must use C++11 or above.
-		You can use this for strings of integers, just change the alphabet size.
+		Important: the input string must not contain any zero values. 
+		Must use C++11 or above.
+		You can use this for strings of integers, just change the 
+		alphabet size.
 
-	Source: https://github.com/kth-competitive-programming/kactl/blob/master/content/strings/SuffixTree.h
+	Source: https://github.com/kth-competitive-programming/kactl/blob/
+	master/content/strings/SuffixTree.h
 */
 
 struct suffix_array

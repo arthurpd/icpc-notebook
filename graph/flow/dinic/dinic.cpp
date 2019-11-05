@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "../../../contest/header.hpp"
 
 /*
 	Dinic:
@@ -14,7 +13,8 @@ using namespace std;
 		Set MAXV if necessary.
 		Call init passing n, the source and the sink.
 		Add edges to the graph by calling put_edge(_undirected).
-		Call max_flow to get the total flow. Then, individual edge flows can be retrieved in the graph.
+		Call max_flow to get the total flow. Then, individual edge 
+		flows can be retrieved in the graph.
 		Note that flow will be negative in return edges.
 */
 

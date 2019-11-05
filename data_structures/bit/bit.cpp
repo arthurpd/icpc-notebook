@@ -1,7 +1,8 @@
 #include "../../contest/header.hpp"
 
 /*
-	BIT: element update, range sum query and sum lower_bound in O(log(N)).
+	BIT: element update, range sum query and sum lower_bound in 
+	O(log(N)).
 	Represents an array of elements in range [1, N].
 */
 
@@ -28,7 +29,8 @@ struct bit
 		return retv;
 	}
 
-	// min pos such that sum of [1, pos] >= sum, or n + 1 if none exists.
+	// min pos such that sum of [1, pos] >= sum, or n + 1 if none
+	// exists.
 	int lower_bound(T x)
 	{
 		T sum = 0;
@@ -38,6 +40,7 @@ struct bit
 			if (pos + (1 << i) <= n && sum + val[pos + (1 << i)] < x)
 				sum += val[pos += (1 << i)];
 
-		return pos + 1; // pos will have position of largest value less than x.
+		return pos + 1; // pos will have position of largest value
+						// less than x.
 	}
 };

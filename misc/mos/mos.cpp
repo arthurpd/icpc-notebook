@@ -6,10 +6,13 @@
 		in O(N * sqrt(Q) * max(insertion time, removal time)).
 	
 	Usage:
-		Queries are defined by closed intervals [l, r] (1 <= l <= r <= n).
-		add(i) must add i-th element to your data structure (1 <= i <= n).
+		Queries are defined by closed intervals 
+			[l, r] (1 <= l <= r <= n).
+		add(i) must add i-th element to your data structure 
+			(1 <= i <= n).
 		remove(i) must remove the i-th element (1 <= i <= n).
-		output(id) should answer query with given id using current state.
+		output(id) should answer query with given id using current 
+		state.
 
 	Author: Arthur Pratti Dadalto
 */

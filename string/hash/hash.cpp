@@ -2,11 +2,13 @@
 
 /*
 	String hashing:
-		Get polynomial hash for any substring in O(1) after O(n) preprocessing.
+		Get polynomial hash for any substring in O(1) after O(n) 
+		preprocessing.
 	
 	Usage:
 		Good values c = 137, mod = 10^9 + 7.
-		If necessary to check too many pairs of hashes, use two different hashes.
+		If necessary to check too many pairs of hashes, use two 
+		different hashes.
 
 		If hashing something other than english characters:
 			- Don't have elements with value 0.
@@ -28,7 +30,7 @@ struct hash_interval
 		}
 	}
 
-	// Returns hash of interval s[a ... b] (where 0 <= a <= b < sz(s)).
+	// Returns hash of interval s[a ... b] (where 0 <= a <= b < sz(s))
 	ll get(int a, int b)
 	{
 		return (h[b + 1] - ((h[a] * p[b - a + 1]) % mod) + mod) % mod;

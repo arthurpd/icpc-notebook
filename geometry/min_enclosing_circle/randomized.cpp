@@ -2,9 +2,10 @@
 
 /*
 	Minimum Enclosing Circle:
-		Given a list of points, returns a circle of minimum radius such that all given
-		points are within the circle.
-		Runs in O(n) expected time (in practice 200 ms for 10^5 points).
+		Given a list of points, returns a circle of minimum radius 
+		such that all given points are within the circle.
+		Runs in O(n) expected time (in practice 200 ms for 10^5 
+		points).
 
 	Constraints:
 		Non-empty list of points.

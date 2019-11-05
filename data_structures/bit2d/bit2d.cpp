@@ -1,7 +1,8 @@
 #include "../../contest/header.hpp"
 
 /*
-	BIT: element update, range sum query in O(log(n) * log(m)). This can also be generalized for 3d.
+	BIT: element update, range sum query in O(log(n) * log(m)). 
+	This can also be generalized for 3d.
 	Represents a matrix of elements in range [1 ... n][1 ... m].
 */
 
@@ -30,7 +31,8 @@ struct bit2d
 		return retv;
 	}
 
-	// sum of positions (ri ... rf, ci ... cf). (1 <= ri <= rf <= n) and (1 <= ci <= cf <= m). TODO: test me.
+	// sum of positions (ri ... rf, ci ... cf). (1 <= ri <= rf <= n) 
+	// and (1 <= ci <= cf <= m). TODO: test me.
 	T query_rect(int ri, int ci, int rf, int cf)
 	{
 		return query(rf, cf) - query(rf, ci - 1) - query(ri - 1, cf) + query(ri - 1, ci - 1);

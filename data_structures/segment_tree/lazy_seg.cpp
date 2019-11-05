@@ -5,7 +5,8 @@ using namespace std;
 	Segment Tree with Lazy updates:
 		Range update and range query in O(log(MAX_RANGE))
 		Binary search on tree in O(log(MAX_RANGE))
-		Given as an example since it is not worth it to copy a generic tree during a contest.
+		Given as an example since it is not worth it to copy a
+		generic tree during a contest.
 	
 	Solves: https://codeforces.com/contest/1179/problem/C
 */
@@ -22,12 +23,14 @@ void prop(int id, int l, int r)
 {
 	if (l != r)
 	{
-		// Updates need to be numerically stackable (e.g. not valid to have a list of updates).
+		// Updates need to be numerically stackable (e.g. not valid
+		// to have a list of updates).
 		delta[left(id)] += delta[id];
 		delta[right(id)] += delta[id];
 	}
 
-	val[id] += delta[id]; // Node value needs to be obtainable without propagating all the way to root.
+	val[id] += delta[id]; // Node value needs to be obtainable without 
+						  // propagating all the way to root.
 	delta[id] = 0;
 }
 
@@ -81,7 +84,8 @@ int get(int id, int l, int r, int a, int b)
 	}
 }
 
-// Find index of rightmost element which is less than x. (works because this is a seg of min)
+// Find index of rightmost element which is less than x. (works
+// because this is a seg of min)
 int bsearch(int id, int l, int r, int x)
 {
 	prop(id, l, r);
@@ -140,7 +144,8 @@ int main(void)
 
 		int tmp = bsearch(1, 1, 1000000, 0);
 
-		// Test of get and bsearch. Make sure all to the right are non-negative.
+		// Test of get and bsearch. Make sure all to the right are
+		// non-negative.
 		if (tmp != 1000000)
 			assert(get(1, 1, 1000000, tmp == -1 ? 1 : (tmp + 1), 1000000) >= 0);
 		if (tmp != -1)

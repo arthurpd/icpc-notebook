@@ -5,10 +5,11 @@
 	This version is different since it is made to handle queries on
 	the cost of the edges in a path.
 
-	To do that, transfer the cost to the vertex down in the rooted tree
-	and use this.
+	To do that, transfer the cost to the vertex down in the rooted 
+	tree and use this.
 
-	Remember to use a valid value for the root (even if it never will be in a query).
+	Remember to use a valid value for the root (even if it never will 
+	be in a query).
 	Also remember some queries will be empty.
 
 	Author: Arthur Pratti Dadalto

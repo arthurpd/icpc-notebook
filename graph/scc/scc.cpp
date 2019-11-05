@@ -3,7 +3,8 @@
 /*
 	Strongly connected components in O(V + E):
 		Finds all strongly connected components of a graph.
-        A strongly connected component is a maximal set of vertices such that
+        A strongly connected component is a maximal set of vertices
+        such that
         every vertex can reach every other vertex in the component.
         The graph where the SCCs are considered vertices is a DAG.
 
@@ -11,11 +12,13 @@
 		Vertices are labeled from 1 to n (inclusive).
 
 	Usage:
-		Create the struct setting the maximum vertex label (n) and the graph adjacency list (graph).
-		Aftewards, ncomp has the number of SCCs in the graph and scc[i] indicates the SCC i
-        belongs to (1 <= scc[i] <= ncomp).
+		Create the struct setting the maximum vertex label (n) and the 
+        graph adjacency list (graph).
+		Aftewards, ncomp has the number of SCCs in the graph and 
+        scc[i] indicates the SCC i belongs to (1 <= scc[i] <= ncomp).
 		
-        sorted is a topological ordering of the graph, byproduct of the algorithm.
+        sorted is a topological ordering of the graph, byproduct of 
+        the algorithm.
         if edge a -> b exists, a appears before b in the sorted list.
 */
 

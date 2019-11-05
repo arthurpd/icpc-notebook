@@ -2,19 +2,23 @@
 
 /*
 	Treap:
-		A short self-balancing tree. It acts as a sequential container with log-time splits/joins, and
-		is easy to augment with additional data.
+		A short self-balancing tree. It acts as a sequential container
+		with log-time splits/joins, and is easy to augment with
+		additional data.
 	
 	Time: O(log N) per operation.
 
 	Constraints:
 		Acts as a vector of size N, with positions in range [0, N-1].
 
-	Source: https://github.com/kth-competitive-programming/kactl/blob/master/content/data-structures/Treap.h
+	Source: https://github.com/kth-competitive-programming/kactl/blob/
+			master/content/data-structures/Treap.h
 
 	Usage:
-		To insert elements, create one node treaps. (e.g. treap::ins(root, new treap::node(x), i))
-		To augment with extra data you should mostly add stuff to the recalc function. (e.g. to make it work like a seg tree)
+		To insert elements, create one node treaps. 
+		(e.g. treap::ins(root, new treap::node(x), i))
+		To augment with extra data you should mostly add stuff to the
+		recalc function. (e.g. to make it work like a seg tree)
 		See applications for more usage examples.
 */
 
@@ -45,7 +49,8 @@ void each(node *n, F f)
 	}
 }
 
-// Split treap rooted at n in two treaps containing positions [0, k) and [k, ...)
+// Split treap rooted at n in two treaps containing positions [0, k)
+// and [k,...)
 pair<node *, node *> split(node *n, int k)
 {
 	if (!n)

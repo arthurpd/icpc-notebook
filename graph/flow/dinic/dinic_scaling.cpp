@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "../../../contest/header.hpp"
 
 /*
 	Dinic with Scaling:
-		Max-flow O(VE * log(MAX_CAP)), but usually slower than regular Dinic.
+		Max-flow O(VE * log(MAX_CAP)), but usually slower than regular 
+		Dinic.
 
 	Constraints:
 		Vertices are labeled from 0 to n (inclusive).
@@ -13,7 +13,8 @@ using namespace std;
 		Set MAXV if necessary.
 		Call init passing n, the source and the sink.
 		Add edges to the graph by calling put_edge(_undirected).
-		Call max_flow to get the total flow. Then, individual edge flows can be retrieved in the graph.
+		Call max_flow to get the total flow. Then, individual edge 
+		flows can be retrieved in the graph.
 		Note that flow will be negative in return edges.
 */
 

@@ -6,10 +6,13 @@
 	
 	Usage:
 		Don't modify internal values, use constructor.
-		Some nice things about the constructor: frac() = 0/1, frac(5) = 5/1.
+		Some nice things about the constructor: 
+			frac() = 0/1, frac(5) = 5/1.
 
-		Be careful that the numerator and denominator might overflow if lcm is too big.
-		In those cases, you can always do frac<big_int>, but that will be painful to code.
+		Be careful that the numerator and denominator might overflow 
+		if lcm is too big.
+		In those cases, you can always do frac<big_int>, but that will 
+		be painful to code.
 
 	Author: Arthur Pratti Dadalto
 */

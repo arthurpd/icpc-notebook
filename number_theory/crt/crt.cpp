@@ -3,26 +3,26 @@
 
 /*
     [DESCRIPTION]
-     Returns a number x, such that: 
-        x ≡ a (mod m)
-        x ≡ b (mod n)
-    
-    [USAGE]
-        if n, m are coprimes: use chinese()
-        else: use chinese_common()  // its possible to use when n, m are coprimes either
-            
+     Returns a number x % lcm(m,n), such that: 
+        x === a (mod m)
+        x === b (mod n)
+     
+     returns -1 if there is no solution
+
+    [COMPLEXITY]
+     log(n)
+
+    [CONSTRAINTS]
+        LCM(m, n) should fit in a long long variable.
 */
 
-template<class Z> Z chinese(Z a, Z m, Z b, Z n) {
-    Z x, y; gcd<Z>(m, n, x, y);
-    Z ret = a * (y + m) % m * n + b * (x + n) % n * m;
-    if (ret >= m * n) ret -= m * n;
-    return ret;
-}
-
-template<class Z> Z chinese_common(Z a, Z m, Z b, Z n) {
-    Z d = gcd<Z>(m, n);
-    if (((b -= a) %= n) < 0) b += n;
-    if (b % d) return -1; // No solution
-    return d * chinese(Z(0), m/d, b/d, n/d) + a;
+ll crt(ll a, ll m, ll b, ll n)
+{
+    if (n > m)
+        swap(a, b), swap(m, n);
+    ll x, y, g = gcd<ll>(m, n, x, y);
+    if ((a - b) % g != 0)
+        return -1;
+    x = (b - a) % n * x % n / g * m + a;
+    return x < 0 ? x + m * n / g : x;
 }

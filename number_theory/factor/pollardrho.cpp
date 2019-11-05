@@ -1,7 +1,8 @@
 /*
   Description: 
-  	Pollard-rho randomized factorization algorithm. Returns prime factors of a number,
-  	in arbitrary order (e.g. 2299 -> {11, 19, 11}).
+  	Pollard-rho randomized factorization algorithm. Returns prime 
+	factors of a number, in arbitrary order (e.g. 2299 -> 
+												  {11, 19, 11}).
   
   Time: 
   	O(n^1/4) gcd calls, less for numbers with small factors.

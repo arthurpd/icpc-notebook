@@ -16,7 +16,8 @@ using namespace std;
 		Call init passing l and r.
 		Add edges to the graph from left side to right side.
 		Call hopcroft to get the matching size.
-		Then, each vertex v has its pair indicated in p[v] (or 0 for not paired).
+		Then, each vertex v has its pair indicated in p[v] (or 0 
+		for not paired).
 */
 
 namespace hopcroft

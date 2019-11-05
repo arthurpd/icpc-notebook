@@ -3,10 +3,12 @@
 /*
 	Sieve of Eratosthenes:
 		Finds all primes in interval [2, MAXP] in O(MAXP) time.
-		Also finds lp[i] for every i in [2, MAXP], such that lp[i] is the minimum prime factor of i.
+		Also finds lp[i] for every i in [2, MAXP], such that lp[i] is 
+		the minimum prime factor of i.
 		Particularly useful for factorization.
 
-	Source: modified from https://cp-algorithms.com/algebra/prime-sieve-linear.html
+	Source: modified from https://cp-algorithms.com/algebra/
+							prime-sieve-linear.html
 
 	Usage:
 		Set MAXP and call init.

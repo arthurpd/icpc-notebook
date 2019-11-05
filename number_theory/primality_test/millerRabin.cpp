@@ -1,7 +1,8 @@
 /*
     Description: 
         Deterministic Miller-Rabin primality test. 
-        Guaranteed to work for numbers up to 2^64 (for larger numbers, extend A randomly).
+        Guaranteed to work for numbers up to 2^64 (for larger 
+        numbers, extend A randomly).
 
     Time: 
         7 * O(log b)

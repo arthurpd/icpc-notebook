@@ -1,11 +1,14 @@
 #include "../../contest/header.hpp"
 
 /*
-	Line Container (most common for convex hull trick). Amortized O(log N) per operation.
-		Container where you can add lines of the form kx+m, and query maximum values at points x.
+	Line Container (most common for convex hull trick). Amortized
+	O(log N) per operation.
+		Container where you can add lines of the form kx+m, and query
+		maximum values at points x.
 		Useful for dynamic programming.
 	
-	Source: https://github.com/kth-competitive-programming/kactl/blob/master/content/contest/template.cpp
+	Source: https://github.com/kth-competitive-programming/kactl/
+			blob/master/content/contest/template.cpp
 */
 
 struct line

@@ -7,13 +7,17 @@
         O(NlgN) // Map of strings argument + comparison-based sort
 
     [USAGE]
-        Call get_roots function to retrieve the pairs of centers for each tree (if the tree has
-        just one center the pair will show it twice).
-        Call canonical function for each tree beginning from each possible center (two at most).
-        A tree is isomorphic to another iff they share one canonical value.
+        Call get_roots function to retrieve the pairs of centers for 
+        each tree (if the tree has just one center the pair will show 
+        it twice).
+        Call canonical function for each tree beginning from each 
+        possible center (two at most).
+        A tree is isomorphic to another iff they share one canonical 
+        value.
 
     [RESET]
-        If the problem has several test cases, don't forget to reset the global vars 'label' and 'map_labels'
+        If the problem has several test cases, don't forget to reset 
+        the global vars 'label' and 'map_labels'
 */
  
 int label;

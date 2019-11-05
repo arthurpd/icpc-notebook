@@ -1,4 +1,4 @@
-#include "../graham_scan(convex_hull)/graham_scan.cpp"
+#include "../graham_scan_convex_hull/graham_scan.cpp"
 
 /*
 	Bounding Box O(n):
@@ -8,8 +8,8 @@
 	Author: Arthur Pratti Dadalto
 */
 
-// p is a convex hull in ccw order with no duplicate or collinear points.
-// Might not work as expected for two points.
+// p is a convex hull in ccw order with no duplicate or
+// collinear points. Might not work as expected for two points.
 double min_bounding_box_perimeter(const vector<point<ll>> &p)
 {
 	int j = 1, n = sz(p);

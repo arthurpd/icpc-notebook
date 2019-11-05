@@ -2,21 +2,25 @@
 
 /*
 	Centroid Decomposition:
-		Solve tree problems by divide and conquer splitting the tree repeatedly on centroid.
+		Solve tree problems by divide and conquer splitting the tree 
+		repeatedly on centroid.
 		Centroid is the vertex with smallest <largerst subtree>.
 		O(n log n if process is O(sz))
 
 	Usage:
 		Call put_edge to initialize the tree edges.
-		Then call decomp(i, n) for any vertex i in the tree, with n being the number of vertices.
-		Function process will be called for a centroid <a> with subtree total size sz.
+		Then call decomp(i, n) for any vertex i in the tree, with n 
+		being the number of vertices.
+		Function process will be called for a centroid <a> with 
+		subtree total size sz.
 			In process you can use:
 			graph[a][i] - graph adjacency list
 			block[a] - true if you should ignore the vertex.
-			sub_size[a][i] - subtree size for edge a -> graph[a][i] (considering only non-blocked parts).
+			sub_size[a][i] - subtree size for edge a -> graph[a][i] 
+			(considering only non-blocked parts).
 		
-		if process can be O(sz + h * log) where h is subtree height it is a lot better constant than
-		O(sz * log)
+		if process can be O(sz + h * log) where h is subtree height it 
+		is a lot better constant than O(sz * log)
 
 	PRINT APPLICATION WITH THIS.
 

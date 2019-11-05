@@ -4,19 +4,26 @@
 
 /*
 	Binary Search Optimization for DP:
-		Optimizes dp of the form (or similar) dp[i][j] = min_{k < i}(dp[k][j-1] + c(k + 1, i)).
-		The classical case is a partitioning dp, where k determines the break point for the next partition.
-		In this case, i is the number of elements to partition and j is the number of partitions allowed.
+		Optimizes dp of the form (or similar) 
+			dp[i][j] = min_{k < i}(dp[k][j-1] + c(k + 1, i)).
+		The classical case is a partitioning dp, where k determines 
+		the break point for the next partition.
+		In this case, i is the number of elements to partition and j 
+		is the number of partitions allowed.
 		
-		Let opt[i][j] be the values of k which minimize the function. (in case of tie, choose the smallest)
+		Let opt[i][j] be the values of k which minimize the function. 
+		(in case of tie, choose the smallest)
 		To apply this optimization, you need opt[i][j] <= opt[i+1][j].
-		That means the when you add an extra element (i + 1), your partitioning choice will not be to include more elements
-		than before (e.g. will no go from choosing [k, i] to [k-1, i+1]).
+		That means the when you add an extra element (i + 1), your 
+		partitioning choice will not be to include more elements
+		than before (e.g. will no go from choosing [k, i] to 
+		[k-1, i+1]).
 		This is usually intuitive by the problem details.
 		
 		Time goes from O(n^2m) to O(nm log n).
 
-		To apply try to write the dp in the format above and verify if the property holds.
+		To apply try to write the dp in the format above and verify if 
+		the property holds.
 	
 	Author: Arthur Pratti Dadalto
 */
@@ -33,10 +40,12 @@ inline int c(int i, int j)
 	return (u[j][j] - u[j][i - 1] - u[i - 1][j] + u[i - 1][i - 1]) / 2;
 }
 
-// This is responsible for computing tab[l...r][j], knowing that opt[l...r][j] is in range [low_opt...high_opt]
+// This is responsible for computing tab[l...r][j], knowing that 
+// opt[l...r][j] is in range [low_opt...high_opt]
 void compute(int j, int l, int r, int low_opt, int high_opt)
 {
-	int mid = (l + r) / 2, opt = -1; // mid is equivalent to i in the original dp.
+	int mid = (l + r) / 2, opt = -1; // mid is equivalent to i in the 
+									 //original dp.
 
 	tab[mid][j] = inf;
 	for (int k = low_opt; k <= high_opt && k < mid; k++)

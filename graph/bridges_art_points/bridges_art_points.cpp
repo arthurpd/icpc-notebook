@@ -2,10 +2,13 @@
 
 /*
 	Finding bridges and articulation points in O(V + E):
-		A bridge is an edge whose removal splits the graph in two connected components.
-		An articulation point is a vertex whose removal splits the graph in two connected components.
-		This can also be adapted to generate the biconnected components of a graph, since the
-		articulation points split components.
+		A bridge is an edge whose removal splits the graph in two 
+		connected components.
+		An articulation point is a vertex whose removal splits the 
+		graph in two connected components.
+		This can also be adapted to generate the biconnected 
+		components of a graph, since the articulation points split 
+		components.
 
 
 	Constraints:
@@ -14,10 +17,11 @@
 		Graph is connected (otherwise it doesn't make sense).
 
 	Usage:
-		Create the struct setting the starting vertex (a), the maximum vertex label (n)
-		and the graph adjacency list (graph).
+		Create the struct setting the starting vertex (a), the maximum 
+		vertex label (n) and the graph adjacency list (graph).
 		Aftewards, art[i] == true if i is an articulation point.
-		If the pair {a, i} is on the bridges list, then the edge {a, graph[a][i]} is a bridge.
+		If the pair {a, i} is on the bridges list, then the edge 
+		{a, graph[a][i]} is a bridge.
 */
 
 struct apb
