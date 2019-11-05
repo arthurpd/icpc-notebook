@@ -155,7 +155,6 @@ struct suffix_tree{
                     else{
                         need_suffix = mid;
                         cur_node = cur_node->next(s[g]);
-                        //printf("j = %d g = %d\n", j, g);
                         cur_dist = j - g - 1;
                     }
                 }
