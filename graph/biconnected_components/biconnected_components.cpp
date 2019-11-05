@@ -33,7 +33,7 @@
 		propositions are equivalent:
             * (i) G is 2-edge-connected;
             * (ii) any edge is in a cycle;
-            * (iii) any two edges are in a tour and degree ≥ 1;
+            * (iii) any two edges are in a tour and degree >= 1;
             * (iv) any two vertices are in a tour 
 			       (a tour can repeat vertices)
 
