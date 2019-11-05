@@ -1,4 +1,4 @@
-#include "../graham_scan(convex_hull)/graham_scan.cpp"
+#include "../graham_scan_convex_hull/graham_scan.cpp"
 
 /*
 	Antipodal pairs O(n):
