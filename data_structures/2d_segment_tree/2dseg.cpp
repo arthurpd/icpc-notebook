@@ -2,7 +2,8 @@
 
 /*
 	2D Segment Tree:
-		2D point update and 2D range query in O(log(n)*log(m)) per operation,
+		2D point update and 2D range query in O(log(n)*log(m)) per
+		operation,
 		where n is the number of rows and m is the number of columns.
 
 		Uses O(Num_Updates * log(n)*log(m)) memory.
@@ -41,7 +42,8 @@ struct nodes
 		}
 	}
 
-	// Update non-leaf tree by joining the two child trees along the modified path.
+	// Update non-leaf tree by joining the two child trees along the
+	// modified path.
 	void updateb(int l, int r, int a, ll x, nodes *o, nodes *p)
 	{
 		if (l == r)

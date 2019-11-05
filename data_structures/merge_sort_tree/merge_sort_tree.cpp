@@ -9,8 +9,8 @@
 
 	Usage:
 		In this example, instead of building the merge sort tree with
-		the given vector (e.g. {1, 5, 2, 6, 3, 7, 4}), we sort a vector
-		of indices by their value in the vector
+		the given vector (e.g. {1, 5, 2, 6, 3, 7, 4}), we sort a
+		vector of indices by their value in the vector
 		(e.g. {0, 2, 4, 6, 1, 3, 5} for the vector above).
 
 		This way, each node in the tree is responsible for a range of
@@ -49,7 +49,7 @@ struct merge_sort_tree
 		}
 	}
 
-	// How many elements in this node have indices in the range [a, b].
+	// How many elements in this node have indices in the range [a, b]
 	int count_interval(int id, int a, int b)
 	{
 		return (int)(upper_bound(all(val[id]), b) - lower_bound(all(val[id]), a));

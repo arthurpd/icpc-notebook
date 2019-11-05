@@ -4,18 +4,27 @@
 
 /*
 	Knuth Optimization for DP:
-		Optimizes dp of the form (or similar) dp[i][j] = min_{i <= k <= j}(dp[i][k-1] + dp[k+1][j] + c(i, j)).
-		The classical case is building a optimal binary tree, where k determines the root.
+		Optimizes dp of the form (or similar) 
+			dp[i][j] = 
+				min_{i <= k <= j}(dp[i][k-1] + dp[k+1][j] + c(i, j)).
+		The classical case is building a optimal binary tree, where k 
+		determines the root.
 		
-		Let opt[i][j] be the value of k which minimizes the function. (in case of tie, choose the smallest)
-		To apply this optimization, you need opt[i][j - 1] <= opt[i][j] <= opt[i+1][j].
-		That means the when you remove an element form the left (i + 1), you won't choose a breaking point more to the left than before.
-		Also, when you remove an element from the right (j - 1), you won't choose a breking point more to the right than before.
+		Let opt[i][j] be the value of k which minimizes the function. 
+		(in case of tie, choose the smallest)
+		To apply this optimization, you need 
+			opt[i][j - 1] <= opt[i][j] <= opt[i+1][j].
+		That means the when you remove an element form the left 
+		(i + 1), you won't choose a breaking point more to the left 
+		than before.
+		Also, when you remove an element from the right (j - 1), you 
+		won't choose a breking point more to the right than before.
 		This is usually intuitive by the problem details.
 		
 		Time goes from O(n^3) to O(n^2).
 
-		To apply try to write the dp in the format above and verify if the property holds.
+		To apply try to write the dp in the format above and verify if 
+		the property holds.
 		Be careful with edge cases for opt.
 
 	Author: Arthur Pratti Dadalto

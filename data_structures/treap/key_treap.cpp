@@ -2,7 +2,9 @@
 
 /*
 	Treap:
-		This treap implements something like a c++ set with additional operations: find the k-th element and count elements less than a given value.
+		This treap implements something like a c++ set with additional 
+		operations: find the k-th element and count elements less than
+		a given value.
 	
 	Time: O(log N) per operation.
 
@@ -55,7 +57,8 @@ node *rotate_right(node *root)
 	return b;
 }
 
-// Insert new node with key x in treap rooted at root if not already there.
+// Insert new node with key x in treap rooted at root if not already
+// there.
 node *insert(node *root, int x)
 {
 	if (root == NULL)
@@ -113,7 +116,7 @@ int kth(node *root, int k)
 		return kth(root->right, k - get_num(root->left) - 1);
 }
 
-// Return the number of elements smaller than x in tree rooted at root.
+// Return the number of elements smaller than x in tree rooted at root
 int count(node *root, int x)
 {
 	if (root == NULL)

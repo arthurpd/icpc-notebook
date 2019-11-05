@@ -7,11 +7,13 @@
 		Other applications: 
 		- All possible sums of two arrays.
 		- Dot product of vector a with every cyclic shift of vector b.
-		- Attaching two boolean stripes without two 1s next to each other.
+		- Attaching two boolean stripes without two 1s next to each
+		  other.
 		- String matching.
 	
 	Usage:
-		long double is a lot slower. 3s with ld and 0.7 with double for 10^6 size vectors.
+		long double is a lot slower. 3s with ld and 0.7 with double 
+		for 10^6 size vectors.
 
 	Source: https://cp-algorithms.com/algebra/fft.html
 */
@@ -59,8 +61,9 @@ void fft(vector<cd> &a, bool invert)
 }
 
 // Input a[0] + a[1]x + a[2]x^2 ...
-// Returns polynomial of size equal to the smallest power of two at least
-// as large as a.size() + b.size(). This can have some extra zeros.
+// Returns polynomial of size equal to the smallest power of two at 
+// least as large as a.size() + b.size(). This can have some extra 
+// zeros.
 // Use long double if using long long.
 template <class T>
 vector<T> multiply(vector<T> const &a, vector<T> const &b)
@@ -80,6 +83,8 @@ vector<T> multiply(vector<T> const &a, vector<T> const &b)
 
 	vector<T> result(n);
 	for (int i = 0; i < n; i++)
-		result[i] = (T)round(fa[i].real()); // Remember to remove rounding if working with floats.
+		result[i] = (T)round(fa[i].real()); // Remember to remove 
+											// rounding if working 
+											// with floats.
 	return result;
 }

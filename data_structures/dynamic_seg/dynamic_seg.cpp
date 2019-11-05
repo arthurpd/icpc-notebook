@@ -1,9 +1,11 @@
 #include "../../contest/header.hpp"
 
 /*
-	Segment tree with dynamic memory allocation and arbitrary interval.
+	Segment tree with dynamic memory allocation and arbitrary
+	interval.
 		Every operation is O(log(r-l))
-		Uses O(min(r-l, n*log(r-l)) memory, where n is the number of insertions. 
+		Uses O(min(r-l, n*log(r-l)) memory, where n is the number of
+		insertions. 
 
 	Constraints:
 		Segment tree range [l, r] must be such that 0 <= l <= r.

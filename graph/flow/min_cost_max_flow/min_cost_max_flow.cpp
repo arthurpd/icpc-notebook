@@ -7,15 +7,18 @@ using namespace std;
 
 	Constraints:
 		Vertices are labeled from 0 to n (inclusive).
-		Edge cost and capacities must fit int (flow and cost returned are long long).
+		Edge cost and capacities must fit int (flow and cost 
+		returned are long long).
 		Edge Cost must be non-negative.
 
 	Usage:
 		Set MAXV if necessary.
 		Call init passing n, the source and the sink.
 		Add edges to the graph by calling put_edge.
-		Call mincost_maxflow to get the total flow and its cost (in this order). 
-		Individual edge flows can be retrieved in the graph. Note that flow will be negative in return edges.
+		Call mincost_maxflow to get the total flow and its cost 
+		(in this order). 
+		Individual edge flows can be retrieved in the graph. 
+		Note that flow will be negative in return edges.
 */
 
 typedef long long ll;

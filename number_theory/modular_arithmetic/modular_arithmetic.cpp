@@ -4,7 +4,9 @@
 	Modular Arithmetic:
 		Struct wrapper on to of modular arithmetics.
 
-	Source: modified from https://github.com/kth-competitive-programming/kactl/blob/master/content/number-theory/ModularArithmetic.h
+	Source: modified from https://github.com/
+	kth-competitive-programming/kactl/blob/master/content/
+	number-theory/ModularArithmetic.h
 */
 
 template <ll mod>

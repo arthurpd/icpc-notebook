@@ -1,12 +1,15 @@
 #include "../flow/dinic/dinic.cpp"
 
 /*
-	Gomory-Hu Tree construction O(V * flow_time) (so O(V^3E), but not really):
-		The Gomory–Hu tree of an undirected graph with capacities is a weighted
-		tree that represents the minimum s-t cuts for all s-t pairs in the graph.
+	Gomory-Hu Tree construction O(V * flow_time) (so O(V^3E), but not 
+	really):
+		The Gomory–Hu tree of an undirected graph with capacities is a 
+		weighted
+		tree that represents the minimum s-t cuts for all s-t pairs in 
+		the graph.
 
-		The minimum cut cost between vertices s and t is the minimum cost of 
-		an edge on the path from s to t in the Gomory-Hu tree.
+		The minimum cut cost between vertices s and t is the minimum 
+		cost of an edge on the path from s to t in the Gomory-Hu tree.
 
 	Constraints:
 		Vertices are labeled from 0 to n-1 (inclusive).
@@ -51,7 +54,8 @@ struct gomory_hu
 
 	vector<pair<ll, int>> solve(int n) 
 	{					   
-		vector<pair<ll, int>> retv(n); // if i > 0, stores pair(cost, parent).
+		vector<pair<ll, int>> retv(n); // if i > 0, stores pair(cost, 
+									   // parent).
 		for (int i = 1; i < n; i++)
 		{
 			dinic::init(n, i, retv[i].second);

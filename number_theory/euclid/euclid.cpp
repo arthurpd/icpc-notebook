@@ -3,12 +3,18 @@
 /*
 	Extended Euclidean Algorithm:
 		Returns the gcd of a and b.
-		Also finds numbers x and y for which a * x + b * y = gcd(a, b) (not unique).
-		All pairs can be represented in the form (x + k * b / gcd, y - k * a / gcd) for k an arbitrary integer.
-		If there are several such x and y, the function returns the pair for which |x| + |y| is minimal.
-		If there are several x and y satisfying the minimal criteria, it outputs the pair for which X <= Y.
+		Also finds numbers x and y for which a * x + b * y = gcd(a, b) 
+		(not unique).
+		All pairs can be represented in the form 
+			(x + k * b / gcd, y - k * a / gcd) 
+		for k an arbitrary integer.
+		If there are several such x and y, the function returns the 
+		pair for which |x| + |y| is minimal.
+		If there are several x and y satisfying the minimal criteria, 
+		it outputs the pair for which X <= Y.
 
-	Source: modified from https://cp-algorithms.com/algebra/extended-euclid-algorithm.html
+	Source: modified from https://cp-algorithms.com/algebra/
+						  extended-euclid-algorithm.html
 
 	Usage:
 		For non-extendend version, c++ has __gcd and __lcm.

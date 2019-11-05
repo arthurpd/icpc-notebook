@@ -3,12 +3,16 @@
 /*
 	Vector and matrix operations:
 		Details are given in each function.
-		vec inherits from vector<T>, so there is a lot you can do with it.
+		vec inherits from vector<T>, so there is a lot you can do 
+		with it.
 		Also, mat inherits from vector<vec<T>>.
 	
 	Author: Arthur Pratti Dadalto
 
-	Source: some of it from https://github.com/kth-competitive-programming/kactl/blob/master/content/numerical/MatrixInverse.h
+	Source: some of it from https://github.com/
+							kth-competitive-programming/
+						    kactl/blob/master/content/numerical/
+							MatrixInverse.h
 */
 
 template <class T>
@@ -77,13 +81,16 @@ struct mat : vector<vec<T>>
 		return retv;
 	}
 
-	// Returns inverse of matrix (assuming it is square and non-singular). Runs in O(n^3).
+	// Returns inverse of matrix (assuming it is square and 
+	// non-singular). 
+	// Runs in O(n^3).
 	// Absolutely does not work for int.
 	mat inverse() // TODO: test singular.
 	{
 		int n = sz(*this);
 		mat a(n, 2 * n);	// A is Nx2N: X|I.
-		vector<int> col(n); // Will be using column pivoting, so need to remember original columns.
+		vector<int> col(n); // Will be using column pivoting, 
+							// so need to remember original columns.
 		for (int i = 0; i < n; i++)
 		{
 			for (int j = 0; j < n; j++)
@@ -100,7 +107,8 @@ struct mat : vector<vec<T>>
 					if (abs(a[j][k]) > abs(a[r][c]))
 						r = j, c = k;
 
-			// assert(abs(a[r][c]) > EPS); Uncomment to check singular matrix
+			// assert(abs(a[r][c]) > EPS); Uncomment to check singular
+			// matrix
 			swap(a[i], a[r]);
 
 			for (int j = 0; j < n; j++)

@@ -1,26 +1,37 @@
 /*
     [DEFINITION]
-        a) Eulerian Path: visits every edge only once, but can repeat vertices.
-        b) Eulerian Cycle: is a eulerian path that is a cycle (start vertice == end vertice)
-        OBS: We disconsider vertices that have indegree==outdegree==0 (we call them as useless vertices)
+        a) Eulerian Path: visits every edge only once, but can repeat 
+           vertices.
+        b) Eulerian Cycle: is a eulerian path that is a cycle 
+           (start vertice == end vertice)
+        OBS: We disconsider vertices that have indegree==outdegree==0 
+           (we call them as useless vertices)
 
     [CONDITIONS] 
         [Undirected graph]
             [Path/Cycle]
-            a) The number of vertices with odd degrees is 2(Eulerian Path) or 0(Eulerian cycle) 
-            b) The graph of useful vertices (see OBS above) should be connected
-            If either of the above condition fails Euler Path/Cycle can't exist.
+            a) The number of vertices with odd degrees is 2(Eulerian 
+               Path) or 0(Eulerian cycle) 
+            b) The graph of useful vertices (see OBS above) should be 
+               connected
+            If either of the above condition fails Euler Path/Cycle 
+            can't exist.
         [Directed graph] 
             [Cycle]
                 a) All vertices should have (indegree==outdegree)
-                b) The UNDIRECTED version of the graph of useful vertices (see OBS above) should be connected
+                b) The UNDIRECTED version of the graph of useful 
+                   vertices (see OBS above) should be connected
             [Path]
                 a) Equal to Cycle's conditions, but:
-                b) There should be a vertex in the graph which has (indegree+1==outdegree)
-                d) There should be a vertex in the graph which has (indegree==outdegree+1)
-            If either of the above condition fails Euler Path/Cycle can't exist.
-        OBS: The "connected" condition it's not explicit tested by the algorithm because it's enough checking the size
-        of the found path.
+                b) There should be a vertex in the graph which has 
+                   (indegree+1==outdegree)
+                d) There should be a vertex in the graph which has 
+                   (indegree==outdegree+1)
+            If either of the above condition fails Euler Path/Cycle 
+            can't exist.
+        OBS: The "connected" condition it's not explicit tested by 
+             the algorithm because it's enough checking the size of 
+             the found path.
 
    [COMPLEXITY] O(V + E)
 
@@ -31,25 +42,32 @@
                 * It's fine to include useless vertices
                 
             [edges]
-                * In undirected graphs be sure that you created just one edge and u,v have this
-                edge in the outs vector.
+                * In undirected graphs be sure that you created just 
+                  one edge and u,v have this edge in the outs vector.
 
             [n] number of total vertices (including useless)
             [m] number of total edges
                 
-        You should call init() before call euler_tour(n_edges), the n_edges argument is how many edges
-        you are expecting to traverse in the euler_tour/walk.
+        You should call init() before call euler_tour(n_edges), the 
+        n_edges argument is how many edges you are expecting to 
+        traverse in the euler_tour/walk.
 
-        !!WARNING!!: Never modify the graph after calling init(), that could invalidate the references.
+        !!WARNING!!: Never modify the graph after calling init(), 
+        that could invalidate the references.
         
         [return]
-            An integer vector that represents the vertices' indexes of the found cycle (when exists)
-            or the found path (when exists). If none was found, an empty vector is returned.
-            You can change the return value to be an integer vector that represent the edges' indexes.
-            OBS: You can check if the returned value is a path by checking if ret.front() != ret.back()
+            An integer vector that represents the vertices' indexes
+            of the found cycle (when exists) or the found path 
+            (when exists). If none was found, an empty vector is 
+            returned.
+            You can change the return value to be an integer vector 
+            that represent the edges' indexes.
+            OBS: You can check if the returned value is a path by 
+            checking if ret.front() != ret.back()
 
         [reset]
-            If the problem has several testcases, don't forget to reset global vars
+            If the problem has several testcases, don't forget to 
+            reset global vars
 
  */
 

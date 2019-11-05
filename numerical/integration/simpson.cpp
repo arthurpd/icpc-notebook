@@ -1,6 +1,7 @@
 /*
 	Numerical Integration:
-		Given a function f and an interval [a, b] estimates integral of f(x) dx from a to b.
+		Given a function f and an interval [a, b] estimates integral 
+		of f(x) dx from a to b.
 		Error is in theory inversely proportional to n^4.
 
 	Usage:

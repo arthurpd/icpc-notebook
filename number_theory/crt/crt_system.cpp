@@ -8,23 +8,26 @@
         ...
         x = a[n - 1] (mod m[n - 1])
 
-    The m[] set does not need to be only of coprimes, because it uses the generalized version of
-    CRT.
+    The m[] set does not need to be only of coprimes, because it uses 
+    the generalized version of CRT.
 
     [USAGE]
-     Just pass the arrays as shown above in the description and their size.
+     Just pass the arrays as shown above in the description and their 
+     size.
      It's 0-indexed, but its trivial to change it to 1-indexed.
 
     [RESULT]
-     The function returns x % LCM(m[0], m[1], ..., m[n - 1]) if a answer exists. Otherwise
-     it returns -1.
+     The function returns x % LCM(m[0], m[1], ..., m[n - 1]) if a 
+     answer exists. Otherwise it returns -1.
     
     [COMPLEXITY]
      O( n * log(LCM(m)) )
 
     [CONSTRAINTS]
-        LCM(m[0], m[1], ..., m[n - 1]) should fit in a long long variable.
-        The values of a[] can be arbitrary, because they are normalized inside the function
+        LCM(m[0], m[1], ..., m[n - 1]) should fit in a long long 
+        variable.
+        The values of a[] can be arbitrary, because they are 
+        normalized inside the function
 
     source: https://codeforces.com/blog/entry/61290
 

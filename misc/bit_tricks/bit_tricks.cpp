@@ -1,11 +1,14 @@
 
-// Returns one plus the index of the least significant 1-bit of x, or if x is zero, returns zero.
+// Returns one plus the index of the least significant 1-bit of x, or 
+// if x is zero, returns zero.
 __builtin_ffs(x)
 
-// Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.
+// Returns the number of leading 0-bits in x, starting at the most 
+// significant bit position. If x is 0, the result is undefined.
 __builtin_clz(x)
 
-// Returns the number of trailing 0-bits in x, starting at the least significant bit position. If x is 0, the result is undefined.
+// Returns the number of trailing 0-bits in x, starting at the least 
+// significant bit position. If x is 0, the result is undefined.
 __builtin_ctz(x)
 
 // Returns the number of 1-bits in x.

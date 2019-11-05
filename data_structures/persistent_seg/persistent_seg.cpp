@@ -7,11 +7,14 @@
 		Uses O(n*log(r-l)) memory, where n is the number of updates.
 
 	Usage:
-		A new root is created for every persistent update (p_update) and returned.
-		Queries can be performed on any root as if it were a usual segment tree.
+		A new root is created for every persistent update (p_update)
+		and returned.
+		Queries can be performed on any root as if it were a usual
+		segment tree.
 		You should keep a list of roots. Something like:
 			vector<node *> roots = {new node()};
-			roots.push_back(p_update(roots.back(), 0, 2*MAXV, a[i] + MAXV, v + 1));
+			roots.push_back(p_update(roots.back(), 0, 
+									 2*MAXV, a[i] + MAXV, v + 1));
 
 	Constraints:
 		Segment tree range [l, r] must be such that 0 <= l <= r.

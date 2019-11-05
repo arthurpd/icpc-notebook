@@ -3,8 +3,9 @@
 
 /*
 	2-SAT O(N + E):
-		Calculates a valid assignment to boolean variables a, b, c,... to a 2-SAT problem,
-		so that an expression of the type (a || b) && (!a || c) && (d || !b) && ...
+		Calculates a valid assignment to boolean variables a, b, c,...
+		to a 2-SAT problem, so that an expression of the type (a || b)
+		&& (!a || c) && (d || !b) && ...
 		becomes true, or reports that it is unsatisfiable.
 
 	Constraints:
@@ -22,7 +23,8 @@
 		ts.solve(); // Returns true iff it is solvable
 		ts.values[0..N-1] holds the assigned values to the vars
 
-	Source: https://github.com/kth-competitive-programming/kactl/blob/master/content/graph/2sat.h
+	Source: https://github.com/kth-competitive-programming/kactl/blob/
+			master/content/graph/2sat.h
 */
 
 struct two_sat
@@ -96,7 +98,8 @@ struct two_sat
 		return val[i] = low;
 	}
 
-	// Returns true if solution exists and values[0..n-1] holds the assigned values to the vars.
+	// Returns true if solution exists and values[0..n-1] holds the 
+	// assigned values to the vars.
 	bool solve()
 	{
 		values.assign(n, -1);

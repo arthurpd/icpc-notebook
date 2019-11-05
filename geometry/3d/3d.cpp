@@ -48,8 +48,8 @@ struct point3D
     }
 };
 
-// Returns the shortest distance on the sphere with radius "radius" between
-// the points with azimuthal angles (longitude) f1 and f2
+// Returns the shortest distance on the sphere with radius "radius"
+// between the points with azimuthal angles (longitude) f1 and f2
 // from x axis and zenith angles (latitude) t1 and t2
 // from z axis. All angles measured in radians.
 // The algorithm starts by converting the spherical coordinates

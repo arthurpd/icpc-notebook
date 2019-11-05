@@ -8,7 +8,8 @@
 	Author: Arthur Pratti Dadalto
 */
 
-// p is a convex hull in ccw order with no duplicate or collinear points.
+// p is a convex hull in ccw order with no duplicate or
+// collinear points.
 double convex_polygon_diameter(const vector<point<ll>> &p)
 {
 	vector<pii> anti = antipodal_pairs(p);

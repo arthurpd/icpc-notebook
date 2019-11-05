@@ -3,17 +3,20 @@
 
 /*
 	Minimum Enclosing Circle:
-		Given a list of points, returns a circle of minimum radius such that all given
-		points are within the circle.
-		Runs in O(n * log^2((top - bot) / eps)) (in practice 2.5s at best for 10^5 points).
+		Given a list of points, returns a circle of minimum radius 
+		such that all given points are within the circle.
+		Runs in O(n * log^2((top - bot) / eps)) (in practice 2.5s at 
+		best for 10^5 points).
 
 	Constraints:
 		Non-empty list of points.
 	
 	Usage:
-		The coordinates of the circle's center must be in the range [bot, top].
-		eps specifies the precision of the result, but set it to a higher value
-		than necessary since the error in x affects the y value.
+		The coordinates of the circle's center must be in the range 
+		[bot, top].
+		eps specifies the precision of the result, but set it to a 
+		higher value than necessary since the error in x affects the 
+		y value.
 
 	Author: Arthur Pratti Dadalto
 */

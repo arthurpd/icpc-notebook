@@ -2,8 +2,8 @@
 #include "../../../contest/header.hpp"
 /*
  	[DESCRIPTION]
-	 Pre-computing all binomial coefficient (% MOD) up to C(MAXN, MAXN) 
-     into a matrix using pascal's triangle.
+	 Pre-computing all binomial coefficient (% MOD) up to 
+     C(MAXN, MAXN) into a matrix using pascal's triangle.
     
 	[COMPLEXITY]
 	 O(n^2) to Pre-computing

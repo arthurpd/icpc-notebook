@@ -3,14 +3,17 @@
 
 /*
 	Convex hull:
-		Computes lower and upper convex hull for a set of points in O(n * log n).
-		Using lower and upper convex hull you can also check if a point belongs
+		Computes lower and upper convex hull for a set of points in
+		O(n * log n).
+		Using lower and upper convex hull you can also check if a
+		point belongs
 		to the polygon in O(log n) with the point_in_ch function.
 
 	Usage:
-		Upper/lower hulls start at lowest x (tie broken by lowest y) and end at
-		highest x (tie broken by highest y).
-		Points can be collinear, but convex hull will not contain collinear points.
+		Upper/lower hulls start at lowest x (tie broken by lowest y) 
+		and end at highest x (tie broken by highest y).
+		Points can be collinear, but convex hull will not contain 
+		collinear points.
 
 	Author: Arthur Pratti Dadalto
 */

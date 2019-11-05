@@ -5,14 +5,18 @@
 		Optimizes a linear program of the form:
 			maximize c*x, s.t. a*x <ops> b, x >= 0.
 		Each constraint can use a different operator from {<= >= ==}.
-		Not polynomial, but got AC 150 ms with 4000 constraints and 200 variables.
+		Not polynomial, but got AC 150 ms with 4000 constraints and 
+		200 variables.
 
 	Usage:
-		Call run_simplex, with the number of constraints and variables, a, b, ops and c (as specified above).
-		Return value is ok if solution was found, unbounded if objective value can be infinitely large
+		Call run_simplex, with the number of constraints and 
+		variables, a, b, ops and c (as specified above).
+		Return value is ok if solution was found, unbounded if 
+		objective value can be infinitely large
 		or infeasible if there is no solution given the constraints.
 
-		The value of each variable is returned in vector res. Objective function optimal value is also returned.
+		The value of each variable is returned in vector res. 
+		Objective function optimal value is also returned.
 		Sample usage is commented below.
 	
 	Author: Arthur Pratti Dadalto
@@ -62,7 +66,9 @@ enum optimization_status { ok, unbouded, infeasible };
 
 int get_entering_var(mat<double> &tab)
 {
-	// Get first non-artificial variable with negative objective coeficient. If none, return -1. (could instead return most negative, but that could cycle)
+	// Get first non-artificial variable with negative objective 
+	// coeficient. If none, return -1. (could instead return most 
+	// negative, but that could cycle)
 	for (int i = 0; i < sz(tab[0]) - 1; i++)
 		if (tab[0][i] < -EPS)
 			return i;
@@ -71,7 +77,8 @@ int get_entering_var(mat<double> &tab)
 
 int get_exiting_var_row(mat<double> &tab, int entering_var)
 {
-	// Get smallest value of val and first in case of tie. If none, return -1.
+	// Get smallest value of val and first in case of tie. If none, 
+	// return -1.
 	int retv = -1;
 	double val = -1.0;
 	for (int i = 1; i < sz(tab); i++)
@@ -79,8 +86,10 @@ int get_exiting_var_row(mat<double> &tab, int entering_var)
 		// If strictly positive, it bounds the entering var.
 		if (tab[i][entering_var] > EPS)
 		{
-			// Entering var will be bounded by tab[i][tab.size().second - 1] / tab[i][entering_var].
-			// val could be slightly negative if tab[i][tab.size().second - 1] = -0.
+			// Entering var will be bounded by 
+			// tab[i][tab.size().second - 1] / tab[i][entering_var].
+			// val could be slightly negative if 
+			//   tab[i][tab.size().second - 1] = -0.
 			if (val == -1.0 || tab[i][sz(tab[i]) - 1] / tab[i][entering_var] < val)
 			{
 				val = tab[i][sz(tab[i]) - 1] / tab[i][entering_var];
@@ -94,13 +103,15 @@ int get_exiting_var_row(mat<double> &tab, int entering_var)
 
 optimization_status solve_tab(mat<double> &tab, vector<int> &basic_var)
 {
-	// artificial_count is the number of variables at the end we should ignore.
+	// artificial_count is the number of variables at the end we 
+	// should ignore.
 	int entering_var;
 	while ((entering_var = get_entering_var(tab)) != -1)
 	{
 		int exiting_var_row = get_exiting_var_row(tab, entering_var);
 
-		// If no exiting variable bounds the entering variable, the objective is unbounded.
+		// If no exiting variable bounds the entering variable, the 
+		// objective is unbounded.
 		if (exiting_var_row == -1)
 			return optimization_status::unbouded;
 
@@ -142,7 +153,8 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 
 		if ((ops[i] == op::le && b[i] < -EPS) || ops[i] == op::eq)
 		{
-			// If we have rhs strictly negative in a inequality or an equality constraint, we need an artificial val.
+			// If we have rhs strictly negative in a inequality or an 
+			// equality constraint, we need an artificial val.
 			num_artificial_variables++;
 		}
 	}
@@ -156,7 +168,7 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 		artificial_cols.push_back(i);
 	int rhs_col = num_vars + num_slack_variables + num_artificial_variables;
 
-	// First objective will be to have artificial variables equal to 0.
+	// First objective will be to have artificial variables equal to 0
 	for (int i : artificial_cols)
 		tab[0][i] = 1;
 
@@ -170,8 +182,9 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 
 		tab[i + 1][rhs_col] = b[i];
 
-		if ((ops[i] == op::le && b[i] < -EPS) || ops[i] == op::eq) // Basic var will be artificial
+		if ((ops[i] == op::le && b[i] < -EPS) || ops[i] == op::eq) 
 		{
+			// Basic var will be artificial
 			if (b[i] < -EPS)
 				vec<double>::linear_comb(tab[i + 1], -1, tab[i + 1], 0, tab[i + 1]); // a[i] *= -1;
 
@@ -188,11 +201,13 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 
 	assert(solve_tab(tab, basic_var) == optimization_status::ok);
 
-	// Best solution could not bring artificial variables to 0 (objective max Z = sum(-xa)).
+	// Best solution could not bring artificial variables to 0 
+	// (objective max Z = sum(-xa)).
 	if (tab[0][sz(tab[0]) - 1] < -EPS)
 		return optimization_status::infeasible;
 
-	// If we have an artificial variable on the base with xb = 0, we need to remove it.
+	// If we have an artificial variable on the base with xb = 0, we 
+	// need to remove it.
 	for (int i = 1; i < sz(basic_var); i++)
 		if (basic_var[i] >= num_vars + num_slack_variables)
 		{
@@ -212,7 +227,8 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 								vec<double>::linear_comb(tab[k], 1, tab[i], -tab[k][j], tab[k]);
 						}
 
-					// Basic variable replacemente done, so proceed to next basic_var.
+					// Basic variable replacemente done, so proceed to 
+					// next basic_var.
 					basic_var[i] = j;
 					break;
 				}
@@ -222,7 +238,7 @@ optimization_status run_simplex(int num_constraints, int num_vars, mat<double> a
 	for (int i = sz(tab) - 1; i > 0; i--)
 		if (basic_var[i] >= num_vars + num_slack_variables)
 		{
-			// Could not replace basic var, so constraint is redundant.
+			// Could not replace basic var, so constraint is redundant
 			tab.erase_row(i);
 			basic_var.erase(basic_var.begin() + i);
 		}

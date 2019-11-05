@@ -8,7 +8,8 @@
 #define circle circle<double>
 #define segment segment<double>
 
-// Returns the intersection area between a convex polygon and a circle.
+// Returns the intersection area between a convex polygon and a
+// circle.
 // Only works if circle center is inside the polygon and
 // the points in p are given in counter-clockwise order.
 // Has some precision issues, so EPS value is very relevant.
@@ -22,7 +23,8 @@ double circle_convex_polygon_intersection(const vector<point> &p, circle c)
 		segment s(p[i], p[(i + 1) % n]);
 		pair<point,point> res;
 		
-		vector<point> bd; // Boundary points (either in segment or segment-circle intersection).
+		vector<point> bd; // Boundary points (either in segment or
+						  // segment-circle intersection).
 		bd.push_back(p[i]);
 		bd.push_back(p[(i + 1) % n]);
 
@@ -43,15 +45,18 @@ double circle_convex_polygon_intersection(const vector<point> &p, circle c)
 			else // Segment completely outside.
 				retv += c.r * c.r * (bd[0] - c.center).angle(bd[1] - c.center) / 2;
 		}
-		else if (bd.size() == 3) // One point inside circle and one outside.
+		else if (bd.size() == 3) // One point inside circle and one
+							     // outside.
 		{
-			if ((bd[0] - c.center).dist() < c.r + EPS) // Point 0 is inside.
+			if ((bd[0] - c.center).dist() < c.r + EPS) 
 			{
+				// Point 0 is inside.
 				retv += c.center.cross(bd[0], bd[1]) / 2;
 				retv += c.r * c.r * (bd[1] - c.center).angle(bd[2] - c.center) / 2;
 			}
-			else // Point 2 is inside
+			else 
 			{
+				// Point 2 is inside
 				retv += c.center.cross(bd[1], bd[2]) / 2;
 				retv += c.r * c.r * (bd[0] - c.center).angle(bd[1] - c.center) / 2;
 			}

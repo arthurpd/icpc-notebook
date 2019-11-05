@@ -30,14 +30,21 @@
 
 		See application for more information.
  
-	Source: adapted from codeforces blog (https://codeforces.com/blog/entry/22072).
+	Source: adapted from codeforces blog (https://codeforces.com/blog/
+										  entry/22072).
 */
 
-template <class DS, bool VALUES_IN_VERTICES> // DS for data structure. Values in vertices, true or false.
+template <class DS, bool VALUES_IN_VERTICES> // DS for data structure.
+											 // Values in vertices,
+											 // true or false.
 struct heavy_light
 {
-	vector<int> p, heavy, h; // parent, heavy child of vertex, height of vertex.
-	vector<int> num;		 // number of vertex (in an order where paths are contiguos intervals).
+	vector<int> p, heavy, h; // parent, heavy child of vertex,
+							 // height of vertex.
+
+	vector<int> num;		 // number of vertex (in an order where
+							 // paths are contiguos intervals).
+
 	vector<int> root;		 // root of heavy path of a given vertex.
 	DS ds;
 
@@ -48,7 +55,8 @@ struct heavy_light
 		h[a] = 0;
 		dfs(graph, a);
 		for (int i = 0, id = 0; i <= n; ++i)
-			if (heavy[p[i]] != i) // parent of the root is itself, so this works.
+			if (heavy[p[i]] != i) // parent of the root is itself,
+								  // so this works.
 				for (int j = i; j != -1; j = heavy[j])
 				{
 					root[j] = i;
