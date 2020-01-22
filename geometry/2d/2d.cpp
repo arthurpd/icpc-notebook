@@ -199,6 +199,32 @@ struct line
 		return linear_solve2(a, b, rhs.a, rhs.b, c, rhs.c);
 	}
 
+	// Returns orthonogonal projection of p on the line
+	point<double> proj(P p){
+		point<double> ans;
+
+		if(abs(a) > EPS)
+        	p.x -= c/a;
+   		else
+        	p.y -= c/b;
+    
+		double scale = (-b*p.x + a*p.y)/(a*(double)a + b*(double)b);
+    	ans.x = scale*-b
+    	ans.y = scale*a
+
+		if(abs(a) > EPS):
+			ans.x += c/a
+		else:
+			ans.y += c/b
+	}
+
+	// Returns parallel line that passes by p
+	line<T> parallel(P p){
+		T new_c = p.x*a + p.y*b;
+		return line(a, b, c);
+	}
+
+
 	// Normalize line to c >= 0, a*a + b*b == 1. Only use with double.
 	line normalize()
 	{
