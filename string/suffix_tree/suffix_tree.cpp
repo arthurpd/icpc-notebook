@@ -155,7 +155,7 @@ struct suffix_tree{
                     int g;
                     if(cur_node != root){
                         cur_node = cur_node->suffix;
-                        g = j - cur_dist;
+                        g = j - cur_dist - 1;
                     }
                     else
                         g = i + 1;
