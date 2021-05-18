@@ -4,15 +4,15 @@ using namespace std;
 /*
 	Minimal Rotation:
 		A rotation of a string s[0...n-1] is s[i...n-1] 
-        concatenated with s[0...i-1] for some i, 0<i<n.
-        This finds the lexicographical minimal rotation
-        in O(n).
+        	concatenated with s[0...i-1] for some i, 0<i<n.
+        	This finds the lexicographical minimal rotation
+        	in O(n).
 
 	Usage:
 		Pass the string as argument. 
-        Returns index of lexicographical minimal rotation.
-        You can use vector<T>, just change the first line
-        to concatenate the vector with itself. 
+        	Returns index of lexicographical minimal rotation.
+        	You can use vector<T>, just change the first line
+        	to concatenate the vector with itself. 
 */
 
 int minimal_rotation(string s){
