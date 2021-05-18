@@ -13,6 +13,8 @@ using namespace std;
         	Returns index of lexicographical minimal rotation.
         	You can use vector<T>, just change the first line
         	to concatenate the vector with itself. 
+		
+	Source: https://en.wikipedia.org/wiki/Lexicographically_minimal_string_rotation
 */
 
 int minimal_rotation(string s){
