@@ -71,5 +71,7 @@
 		"iterator": "cpp",
 		"map": "cpp",
 		"memory_resource": "cpp"
-	}
+	},
+	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 75, MaxEmptyLinesToKeep: 0 }",
+    "formatFiles.extensionsToInclude": "cpp"
 }
