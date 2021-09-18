@@ -1,7 +1,10 @@
-\documentclass [5pt,twocolumn,oneside]{article}
+\documentclass [a4paper,5pt,oneside, landscape]{article}
 \usepackage {listings}
 \usepackage {color}
-\usepackage[top=1.5cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage[top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm,
+  headsep=0pt,% remove space between header and text body
+  headheight=17pt% suggested by fancyhdr
+  ]{geometry}
 \usepackage{fancyhdr}
 \usepackage[default]{sourcecodepro}
 \usepackage[T1]{fontenc}
@@ -13,7 +16,7 @@
 \definecolor {mymauve}{rgb}{0.58,0,0.82}
 \lstset { %
 	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-	basicstyle=\tiny,               % the size of the fonts that are used for the code
+	basicstyle=\scriptsize,               % the size of the fonts that are used for the code
 	%basicstyle=\normalsize,               % the size of the fonts that are used for the code
 	breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
 	breaklines=true,                 % sets automatic line breaking
@@ -41,11 +44,11 @@
 }
 
 \begin {document}
-\begin{landscape}
 \begin{multicols}{3}
 \pagestyle{fancy}
 \fancyfoot{}
 \fancyhead[R]{\thepage}
+\fancyhead[L]{Unicamp - Campinas Grande - \rightmark}
 \renewcommand{\headrulewidth}{0.4pt}
 \tableofcontents
 \scriptsize
@@ -401,6 +404,5 @@
 \lstinputlisting [language=c++] {"../string/suffix_tree/suffix_tree.cpp.hash"}
 
 \end{multicols}
-\end{landscape}
 \end {document}
 
